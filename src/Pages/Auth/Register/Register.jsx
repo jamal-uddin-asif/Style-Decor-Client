@@ -6,9 +6,11 @@ import Container from "../../../Components/Shared/Container";
 import { Link } from "react-router";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 
 const Register = () => {
     const {createUser, updateUserProfile} = useAuth()
+    const axiosSecure = useAxiosSecure()
   
     const {register, handleSubmit, formState: {errors}} = useForm()
 
@@ -25,12 +27,26 @@ const Register = () => {
 
         axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_BB_API_KEY}`, formData)
         .then(res=>{
-          console.log(res.data.data.url)
+          const photo = res.data.data.url
           const profileUpdateInfo = {
             displayName: data.name,
-            photoURL: res.data.data.url
+            photoURL: photo
           }
-
+        
+          // save user in the database 
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            photo: photo
+          }
+          axiosSecure.post('/users', userInfo)
+          .then(result =>{
+            console.log(result)
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+           
           updateUserProfile(profileUpdateInfo)
           .then(()=>{
             console.log('Profile updated')

@@ -8,6 +8,7 @@ import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
+import AddServices from "../Pages/Dashboard/AddServices/AddServices";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,12 @@ export const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>
+        element:<PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard/addServices',
+                Component: AddServices
+            }
+        ]
     }
 ])

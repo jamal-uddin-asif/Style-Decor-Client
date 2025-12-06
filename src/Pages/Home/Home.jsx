@@ -1,10 +1,12 @@
 import React from 'react';
+import Leaflet from './Leaflet/Leaflet';
+import Container from '../../Components/Shared/Container';
 
 const Home = () => {
     return (
-        <div>
-            Home Page
-        </div>
+        <Container>
+           <Leaflet></Leaflet>
+        </Container>
     );
 };
 
