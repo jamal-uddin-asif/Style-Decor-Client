@@ -3,10 +3,25 @@ import Container from '../../../Components/Shared/Container';
 import { useForm } from 'react-hook-form';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link } from 'react-router';
+import { useAuth } from '../../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-
+    const {signInUser} = useAuth()
         const {register, handleSubmit, formState: {errors}} = useForm()
+  const handleSignIn =async(data)=>{
+    try{
+     const res = await signInUser(data.email, data.password)
+      console.log(res)
+      toast.success("SignIn successful")
+    }
+    catch(err){
+      console.log(err)
+      toast.error(err.code)
+    }
+
+  } 
+
 
     return (
         <Container>
@@ -14,8 +29,8 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen">
 
         <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-4xl font-bold text-center">Welcome Back</h1>
-          <form  className="card-body">
+          <h1 className="text-4xl font-bold text-center text-secondary">Welcome Back</h1>
+          <form onSubmit={handleSubmit(handleSignIn)}  className="card-body">
             <fieldset className="fieldset">
 
 
@@ -33,7 +48,7 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral mt-4">SignIn</button>
+              <button className="btn btn-secondary mt-4 ">SignIn</button>
               <p className='font-semibold'>New in Style Decor? <Link className='text-blue-600 link-hover ml-2' to={'/register'}>Create Account</Link></p>
               <SocialLogin></SocialLogin>
             </fieldset>

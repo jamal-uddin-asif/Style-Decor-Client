@@ -4,14 +4,53 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../../Hooks/useAuth";
 import Container from "../../../Components/Shared/Container";
 import { Link } from "react-router";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
-    const authInfo = useAuth()
-    console.log(authInfo)
+    const {createUser, updateUserProfile} = useAuth()
+  
     const {register, handleSubmit, formState: {errors}} = useForm()
 
     const handleRegister = data =>{
-        console.log(data)
+       
+      createUser(data.email, data.password)
+      .then(result=>{
+        console.log(result)
+        toast.success("Account Created successfully")
+
+        const photo = data.photo[0];
+        const formData = new FormData()
+        formData.append('image', photo)
+
+        axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_BB_API_KEY}`, formData)
+        .then(res=>{
+          console.log(res.data.data.url)
+          const profileUpdateInfo = {
+            displayName: data.name,
+            photoURL: res.data.data.url
+          }
+
+          updateUserProfile(profileUpdateInfo)
+          .then(()=>{
+            console.log('Profile updated')
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+
+
+        })
+        .catch(err=>{
+          console.log(err)
+        })
+
+
+      })
+      .catch(err=>{
+        console.log(err)
+        toast.error(err.code)
+      })
 
 
     }
@@ -21,7 +60,7 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-screen">
 
         <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-4xl font-bold text-center">Create Account</h1>
+          <h1 className="text-4xl font-bold text-center text-secondary">Create Account</h1>
           <form onSubmit={handleSubmit(handleRegister)} className="card-body">
             <fieldset className="fieldset">
 
@@ -46,7 +85,7 @@ const Register = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral mt-4">Create Account</button>
+              <button className="btn btn-secondary mt-4">Create Account</button>
                             <p className='font-semibold'>Already have an Style Decor account? <Link className='text-blue-600 link-hover ml-2' to={'/login'}>SignIn</Link></p>
 
               <SocialLogin></SocialLogin>

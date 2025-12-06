@@ -3,18 +3,30 @@ import Container from "./Container";
 import { Link, NavLink } from "react-router";
 import { useAuth } from "../../Hooks/useAuth";
 import Logo from "./Logo";
+import toast from "react-hot-toast";
 
 const Navber = () => {
 
-  const {user} = useAuth()
+
+  const {user, LogOutUser} = useAuth()
 
   const links = <>
-    <li><NavLink to={'/'}>Home</NavLink></li>
-    <li><NavLink to={'/services'}>Services</NavLink></li>
-    <li><NavLink to={'/about'}>About</NavLink></li>
-    <li><NavLink to={'/contact'}>Contact</NavLink></li>
+    <li className="font-semibold"><NavLink className={({isActive})=> isActive? 'text-secondary font-bold': ''}  to={'/'}>Home</NavLink></li>
+    <li className="font-semibold"><NavLink className={({isActive})=> isActive? 'text-secondary font-bold': ''} to={'/services'}>Services</NavLink></li>
+    <li className="font-semibold"><NavLink className={({isActive})=> isActive? 'text-secondary font-bold': ''} to={'/about'}>About</NavLink></li>
+    <li className="font-semibold"><NavLink className={({isActive})=> isActive? 'text-secondary font-bold': ''} to={'/contact'}>Contact</NavLink></li>
+    <li className="font-semibold"><NavLink className={({isActive})=> isActive? 'text-secondary font-bold': ''} to={'/dashboard'}>Dashboard</NavLink></li>
   </>
-  
+
+  const handleSignOut = () =>{
+    try{
+      LogOutUser()
+      toast.success("SignOut successful")
+    }
+  catch(err){
+    toast.error(err.code)
+  }
+}
   return (
     <div className="bg-base-100 shadow-sm">
 
@@ -46,7 +58,7 @@ const Navber = () => {
           {links}
           </ul>
         </div>
-        <a className=" text-xl"><Logo></Logo></a>
+        <div className=" text-xl"><Logo></Logo></div>
       </div>
       {/* <div className="navbar-center ">
       </div> */}
@@ -55,7 +67,7 @@ const Navber = () => {
          {links}
         </ul>
         {
-          user? <button >SignOut</button>: <Link to={'/login'} className="btn">SignIn</Link>
+          user? <button className="btn btn-secondary" onClick={handleSignOut}>SignOut</button >: <Link className='btn btn-secondary' to={'/login'} >SignIn</Link>
 
         }
       </div>
