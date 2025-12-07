@@ -9,6 +9,7 @@ import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import AddServices from "../Pages/Dashboard/AddServices/AddServices";
+import ManageDecorator from "../Pages/Dashboard/ManageDecoretor/ManageDecorator";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addServices',
                 Component: AddServices
+            },
+            {
+                path: '/dashboard/manageDecorator',
+                Component: ManageDecorator
             }
         ]
     }
