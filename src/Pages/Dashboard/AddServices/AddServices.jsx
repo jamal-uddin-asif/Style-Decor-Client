@@ -36,7 +36,7 @@ const AddServices = () => {
         category:data.category,
         description: data.description,
         location: data.location,
-        createdBy: user.email,
+        creatorEmail: user.email,
         creatorName: user.displayName,
         createdAt: new Date(),
         rating,

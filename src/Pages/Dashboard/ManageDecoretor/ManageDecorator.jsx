@@ -41,8 +41,8 @@ const ManageDecorator = () => {
             <tr>
               <th className="w-5">No.</th>
               <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th className="">Email</th>
+              <th className="">Role</th>
               <th>Action</th>
             </tr>
           </thead>
