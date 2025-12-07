@@ -6,7 +6,7 @@ import LoadingSpinner from "../../../Components/Shared/LoadingSpinner";
 const ManageDecorator = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: users = [], isLoading } = useQuery({
+  const { data: users = [], isLoading, refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure("/users");
@@ -14,8 +14,18 @@ const ManageDecorator = () => {
     },
   });
 
+
   const handleRoleStatus = (user, role) => {
-    console.log(user, role)
+    const updateInfo = {
+        role,
+    }
+    axiosSecure.patch(`/users/${user._id}` ,updateInfo)
+    .then(data=>{
+        console.log(data.data)
+        refetch()
+
+    })
+
   };
 
   if (isLoading) {
@@ -57,14 +67,20 @@ const ManageDecorator = () => {
                 </td>
                 <td>{user.email}</td>
                 <td>{user.role}</td>
-                <th>
-                  <button onClick={()=>handleRoleStatus(user, 'decorator')} className="btn btn-ghost btn-xs">
+                <td>
+                    {user.role === 'User'? (
+                  <button onClick={()=>handleRoleStatus(user, 'Decorator')} className="btn btn-ghost btn-xs">
                     <span className="badge badge-outline">Make Decorator</span>
                   </button>
-                  <button onClick={()=> handleRoleStatus(user, 'user')} className="btn btn-ghost btn-xs">
+
+                    ): (
+
+                  <button onClick={()=> handleRoleStatus(user, 'User')} className="btn btn-ghost btn-xs">
                     <span className="badge badge-outline">Make User</span>
                   </button>
-                </th>
+                    )
+                    }
+                </td>
               </tr>
             ))}
           </tbody>
