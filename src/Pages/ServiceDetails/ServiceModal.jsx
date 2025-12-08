@@ -48,7 +48,7 @@ const ServiceModal = ({ serviceRef, service }) => {
 
     }
 
-    axiosSecure.post('/booking', serviceInfo)
+    axiosSecure.post('/bookings', serviceInfo)
     .then(res=>{
       console.log(res.data)
       reset()
