@@ -6,6 +6,7 @@ import { useUplodePhoto } from "../../../Hooks/useUplodePhoto";
 import axios from "axios";
 import { useAuth } from "../../../Hooks/useAuth";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 
 const AddServices = () => {
@@ -30,11 +31,12 @@ const AddServices = () => {
     console.log(rating)
     
     const services = {
-        serviceName: data.name,
+        serviceName: data.serviceName,
         serviceImg,
         cost: data.cost,
         category:data.category,
         description: data.description,
+        shortDescription: data.shortDescription,
         location: data.location,
         creatorEmail: user.email,
         creatorName: user.displayName,
@@ -45,6 +47,7 @@ const AddServices = () => {
     axiosSecure.post('/services', services)
     .then(data=>{
       console.log(data.data)
+      toast.success("Service Added")
     })
 
   };
@@ -66,7 +69,7 @@ const AddServices = () => {
                 <label className="label">Name</label>
                 <input
                   type="name"
-                  {...register("name", {
+                  {...register("serviceName", {
                     required: {
                       value: true,
                       message: "Service Name is required",
@@ -151,7 +154,24 @@ const AddServices = () => {
                   <p className="text-red-600">{errors.category.message}</p>
                 )}
 
-                {/* Description  */}
+                {/*Short Description  */}
+                <label className="label">Short Description</label>
+                <textarea
+                  {...register("shortDescription", {
+                    required: {
+                      value: true,
+                      message: "Short Description is required",
+                    },
+                  })}
+                  className="textarea "
+                  placeholder="Description"
+                  rows={4}
+                ></textarea>
+                {errors.shortDescription && (
+                  <p className="text-red-600">{errors.shortDescription.message}</p>
+                )}
+
+                {/* short Description  */}
                 <label className="label">Description</label>
                 <textarea
                   {...register("description", {

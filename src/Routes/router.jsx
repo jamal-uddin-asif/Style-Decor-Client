@@ -10,6 +10,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import AddServices from "../Pages/Dashboard/AddServices/AddServices";
 import ManageDecorator from "../Pages/Dashboard/ManageDecoretor/ManageDecorator";
+import ServicesDetails from "../Pages/ServiceDetails/ServicesDetails";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: 'services',
                 Component: Services
+            },
+            {
+                path: 'services/:id',
+                Component: ServicesDetails
             },
             {
                 path: 'about',

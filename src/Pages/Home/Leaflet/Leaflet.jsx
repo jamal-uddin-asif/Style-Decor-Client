@@ -14,7 +14,6 @@ useEffect(()=>{
         setCenter(data.data)
     })
 })
-console.log(center)
   return (
     <div className="h-[400px], w-full border">
       <MapContainer className="h-[400px]" center={position} zoom={7} scrollWheelZoom={false}>
