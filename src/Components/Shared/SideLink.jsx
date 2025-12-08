@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const SideLink = ({to, address}) => {
+const SideLink = ({to, address, icon}) => {
     return (
         <Link to={to} className={'border mt-2 '}>
-            {address}
+           {icon} { address}
         </Link>
     );
 };

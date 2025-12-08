@@ -37,8 +37,6 @@ const Services = () => {
           }
         }
 
-        console.log(category)
-
     // if(isLoading){
     //     return <LoadingSpinner></LoadingSpinner>
     // }

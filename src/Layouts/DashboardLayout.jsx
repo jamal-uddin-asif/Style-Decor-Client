@@ -4,6 +4,8 @@ import Logo from '../Components/Shared/Logo';
 import { Link, Outlet } from 'react-router';
 import { IoIosAddCircle } from 'react-icons/io';
 import SideLink from '../Components/Shared/SideLink';
+import { TiThMenu } from "react-icons/ti";
+import { FaUser } from "react-icons/fa";
 
 const DashboardLayout = () => {
 
@@ -22,7 +24,7 @@ const DashboardLayout = () => {
     </div>
     <div>
 
-    <label  htmlFor="my-drawer-5" className="drawer-button btn ">Open drawer</label>
+    <label  htmlFor="my-drawer-5" className="drawer-button btn ">Open drawer<TiThMenu /></label>
     </div>
   </nav>
 
@@ -40,7 +42,7 @@ const DashboardLayout = () => {
       <Logo></Logo>
       <li><SideLink to={'/dashboard/addServices'} address={'Add Services'}></SideLink></li>
       <li><SideLink to={'/dashboard/manageDecorator'} address={'Manage Decorator'}></SideLink></li>
-      <li><SideLink to={'/dashboard/myBookings'} address={'My Bookings'}></SideLink></li>
+      <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser />} address={'My Bookings'}></SideLink></li>
   
     </ul>
   </div>

@@ -4,7 +4,8 @@ import { useAuth } from "../../../Hooks/useAuth";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import { CiCreditCard1 } from "react-icons/ci";
 import { MdCancel, MdDriveFileRenameOutline } from "react-icons/md";
-import toast from "react-hot-toast";
+
+import Swal from "sweetalert2";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -20,11 +21,44 @@ const MyBookings = () => {
 
 
   const handleDelete = (booking) =>{
-    axiosSecure.delete(`/booking/${booking._id}`)
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor:"#d33" ,
+  cancelButtonColor:"#3085d6" ,
+  confirmButtonText: "Delete!"
+}).then((result) => {
+  if (result.isConfirmed) {
+      axiosSecure.delete(`/booking/${booking._id}`)
+      .then(data=>{
+          console.log(data.data)
+          refetch()
+          Swal.fire({
+            title: "Your Booking has been Deleted",
+            text: "Your Booking has been deleted.",
+            icon: "success"
+          });
+      })
+  }
+});
+
+  }
+
+  const handlePayment = booking =>{
+  
+    const paymentInfo = {
+        serviceId: booking._id,
+        cost: booking.cost,
+        serviceName: booking.serviceName,
+        shortDescription: booking.shortDescription,
+        customerEmail: booking.customerEmail, 
+    }
+    axiosSecure.post('/create-checkout-session', paymentInfo)
     .then(data=>{
-        console.log(data.data)
-        refetch()
-        toast.success("Your Booking has been Deleted")
+        window.location.assign(data.data.url)
+
     })
   }
 
@@ -35,8 +69,8 @@ const MyBookings = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Service Name</th>
+              <th>#</th>
+              <th className="">Service Name</th>
               <th>Cost</th>
               <th>Feet</th>
               <th>Pay</th>
@@ -44,14 +78,15 @@ const MyBookings = () => {
             </tr>
           </thead>
           <tbody>
+            
             {bookings?.map((booking, i) => (
-              <tr key={i}>
-                <th>1</th>
-                <td>{booking.serviceName}</td>
+              <tr key={i} className="">
+                <th>{i+1}</th>
+                <td >{booking.serviceName}</td>
                 <td>{booking.cost}</td>
                 <td>{booking.feet}</td>
                 <td className="badge-success badge">
-                  <button className="flex items-center text-white gap-1">
+                  <button onClick={()=>handlePayment(booking)} className="flex items-center text-white gap-1">
                     <CiCreditCard1 />
                     Pay
                   </button>

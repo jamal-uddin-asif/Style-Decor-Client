@@ -41,12 +41,13 @@ const ServiceModal = ({ serviceRef, service }) => {
       category,
       cost: totalAmount,
       feet: data.feet,
+      shortDescription,
       customerEmail: data.customerEmail,
       customerName: data.customerName,
       customerLocation: data.customerLocation,
       bookingDate: data.bookingDate,
-
     }
+  
 
     axiosSecure.post('/bookings', serviceInfo)
     .then(res=>{
