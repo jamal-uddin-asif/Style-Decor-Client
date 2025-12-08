@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddServices from "../Pages/Dashboard/AddServices/AddServices";
 import ManageDecorator from "../Pages/Dashboard/ManageDecoretor/ManageDecorator";
 import ServicesDetails from "../Pages/ServiceDetails/ServicesDetails";
+import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
 
 export const router = createBrowserRouter([
     {
@@ -60,7 +61,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/manageDecorator',
                 Component: ManageDecorator
-            }
+            },
+            {
+                path: '/dashboard/myBookings',
+                Component: MyBookings
+            },
         ]
     }
 ])

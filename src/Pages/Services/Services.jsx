@@ -32,6 +32,9 @@ const Services = () => {
           if(data.search){
             setSearchText(data.search)
           }
+          else{
+            setSearchText('')
+          }
         }
 
         console.log(category)
@@ -56,7 +59,7 @@ const Services = () => {
             </label>
               <form onSubmit={handleSubmit(handleSearch)} className="relative">
                 <input {...register('search')} className="input md:min-w-80 outline-0" type="search" placeholder="Search Service"/>
-                <input  className="absolute btn bg-amber-400 btn-outline" type="submit" value="Search" />
+                <input  className="absolute right-0 h-full p-2 z-10 bg-amber-400 btn-outline" type="submit" value="Search" />
               </form>
             </div>
         </div>  

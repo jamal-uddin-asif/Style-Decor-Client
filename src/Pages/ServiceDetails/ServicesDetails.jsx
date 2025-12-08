@@ -8,11 +8,13 @@ import { FcRating } from "react-icons/fc";
 import { MdCategory, MdEmail } from "react-icons/md";
 import { SiNamemc } from "react-icons/si";
 import ServiceModal from "./ServiceModal";
+import { useAuth } from "../../Hooks/useAuth";
 
 const ServicesDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const serviceRef = useRef(null)
+  const {user} = useAuth()
 
   
   
@@ -66,7 +68,8 @@ const handleBookNow = () =>{
                 <img className="w-full max-h-[500px]" src={serviceImg} alt="" />
                 <h3 className="text-3xl font-bold">Description</h3>
                 <p className="font-semibold">{description}</p>
-                <button onClick={handleBookNow} className="btn btn-secondary min-w-50">Book Now</button>
+                {!user && <p className="font-semibold text-red-400">Please Login for Booking</p>}
+                <button disabled={!user} onClick={handleBookNow} className="btn btn-secondary min-w-50">Book Now</button>
             </div>
         </div>
 

@@ -1,15 +1,32 @@
 import React from "react";
 import { useAuth } from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
+  const axiosSecure = useAxiosSecure()
 
   const handleGoogleSignIn = async () => {
     googleSignIn()
       .then((res) => {
-        console.log(res);
+        console.log(res.user.displayName, res.user.photoURL, res.user.email);
         toast.success("SignIn successful");
+        
+            // save user in the database 
+          const userInfo = {
+            name: res.user.displayName,
+            email: res.user.email,
+            photo: res.user.photoURL
+          }
+          axiosSecure.post('/users', userInfo)
+          .then(result =>{
+            console.log(result.data)
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+
       })
       .catch((err) => {
         toast.success(err.code);

@@ -40,6 +40,7 @@ const DashboardLayout = () => {
       <Logo></Logo>
       <li><SideLink to={'/dashboard/addServices'} address={'Add Services'}></SideLink></li>
       <li><SideLink to={'/dashboard/manageDecorator'} address={'Manage Decorator'}></SideLink></li>
+      <li><SideLink to={'/dashboard/myBookings'} address={'My Bookings'}></SideLink></li>
   
     </ul>
   </div>
