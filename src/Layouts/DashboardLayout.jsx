@@ -6,26 +6,29 @@ import { IoIosAddCircle } from 'react-icons/io';
 import SideLink from '../Components/Shared/SideLink';
 import { TiThMenu } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
+import { TbBrandBooking } from "react-icons/tb";
 
 const DashboardLayout = () => {
 
     return (
-        <Container>
-
 <div className="drawer drawer-end">
   <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content">
     {/* Page content here */}
     
 
-  <nav className='flex justify-between py-8'>
+  <nav className='bg-cyan-700'>
+    <Container>
+      <div  className='flex justify-between py-5'>
+
     <div>
         <Logo></Logo>
     </div>
     <div>
-
-    <label  htmlFor="my-drawer-5" className="drawer-button btn ">Open drawer<TiThMenu /></label>
+    <label  htmlFor="my-drawer-5" className="drawer-button btn bg-amber-300 "><span className='text-cyan-600 font-bold'>Open Menu</span><TiThMenu /></label>
     </div>
+      </div>
+    </Container>
   </nav>
 
   <main>
@@ -43,12 +46,12 @@ const DashboardLayout = () => {
       <li><SideLink to={'/dashboard/addServices'} address={'Add Services'}></SideLink></li>
       <li><SideLink to={'/dashboard/manageDecorator'} address={'Manage Decorator'}></SideLink></li>
       <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser />} address={'My Bookings'}></SideLink></li>
+      <li><SideLink to={'/dashboard/manageBookings'} icon={<TbBrandBooking />} address={'Manage Bookings'}></SideLink></li>
   
     </ul>
   </div>
 </div>
    
-        </Container>
     );
 };
 

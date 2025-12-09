@@ -6,6 +6,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { MdCancel, MdDriveFileRenameOutline } from "react-icons/md";
 
 import Swal from "sweetalert2";
+import Container from "../../../Components/Shared/Container";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -14,7 +15,7 @@ const MyBookings = () => {
   const { data: bookings = [] , refetch} = useQuery({
     queryKey: ["bookings", user.email],
     queryFn: async () => {
-      const res = await axiosSecure(`/bookings/${user.email}`);
+      const res = await axiosSecure(`/bookings?email=${user.email}`);
       return res.data;
     },
   });
@@ -54,6 +55,7 @@ const MyBookings = () => {
         serviceName: booking.serviceName,
         shortDescription: booking.shortDescription,
         customerEmail: booking.customerEmail, 
+        trackingId: booking.trackingId
     }
     axiosSecure.post('/create-checkout-session', paymentInfo)
     .then(data=>{
@@ -63,7 +65,10 @@ const MyBookings = () => {
   }
 
   return (
+    
     <div>
+      <Container>
+
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -73,6 +78,8 @@ const MyBookings = () => {
               <th className="">Service Name</th>
               <th>Cost</th>
               <th>Feet</th>
+              <th>Tracking Id</th>
+              <th>Service Status</th>
               <th>Pay</th>
               <th>Actions</th>
             </tr>
@@ -85,11 +92,17 @@ const MyBookings = () => {
                 <td >{booking.serviceName}</td>
                 <td>{booking.cost}</td>
                 <td>{booking.feet}</td>
-                <td className="badge-success badge">
-                  <button onClick={()=>handlePayment(booking)} className="flex items-center text-white gap-1">
+                <td>{booking.trackingId}</td>
+                <td>{booking.serviceStatus}</td>
+                <td className="">
+                  {
+                    booking?.paymentStatus === 'Paid' ? <span className="text-green-500">Paid</span>: 
+                  <button onClick={()=>handlePayment(booking)} className="flex badge-success badge items-center text-white gap-1">
                     <CiCreditCard1 />
                     Pay
                   </button>
+                    
+                  }
                 </td>
                 <td>
                   <button>
@@ -104,6 +117,7 @@ const MyBookings = () => {
           </tbody>
         </table>
       </div>
+      </Container>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../../Components/Shared/LoadingSpinner";
+import Container from "../../../Components/Shared/Container";
 
 const ManageDecorator = () => {
   const axiosSecure = useAxiosSecure();
@@ -34,6 +35,8 @@ const ManageDecorator = () => {
 
   return (
     <div>
+      <Container>
+
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -86,6 +89,7 @@ const ManageDecorator = () => {
           </tbody>
         </table>
       </div>
+      </Container>
     </div>
   );
 };
