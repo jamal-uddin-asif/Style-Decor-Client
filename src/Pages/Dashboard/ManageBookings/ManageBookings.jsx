@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Heading from '../../../Components/Shared/Heading';
 import { useQuery } from '@tanstack/react-query';
 import { useAxiosSecure } from '../../../Hooks/useAxiosSecure';
 import Container from '../../../Components/Shared/Container';
 import LoadingSpinner from '../../../Components/Shared/LoadingSpinner';
+import DecoratorsDialog from './Dialog/DecoratorsDialog';
 
 const ManageBookings = () => {
     const axiosSecure = useAxiosSecure()
+    const [isOpen, setIsOpen] = useState(false)
 
-    const {data: bookings = [], isLoading} = useQuery({
+    const {data: bookings = [], isLoading: bookingsLoading} = useQuery({
         queryKey: ['bookings'],
         queryFn: async()=>{
             const res =  await axiosSecure('/bookings')
@@ -16,12 +18,22 @@ const ManageBookings = () => {
         }
     })
     
-    const {data} = useQuery({
+    const {data: decorators= []} = useQuery({
         queryKey: ['decorators'],
         queryFn: async()=>{
-            const res = await axiosSecure()
+            const res = await axiosSecure('/users?role=Decorator')
+            return res.data
         }
     })
+
+
+    const handleAssignDecorator = () =>{
+        setIsOpen(true)
+    }
+
+    if(bookingsLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div>
@@ -47,7 +59,7 @@ const ManageBookings = () => {
                       </thead>
                       <tbody>
                         
-                        {isLoading? <LoadingSpinner></LoadingSpinner>: bookings?.map((booking, i) => (
+                        { bookings?.map((booking, i) => (
                           <tr key={i} className="">
                             <th>{i+1}</th>
                             <td >{booking.serviceName}</td>
@@ -58,13 +70,15 @@ const ManageBookings = () => {
                             <td>{booking.serviceStatus}</td>
                             <td>
                                 {
-                                    booking.paymentStatus === 'Paid' &&  <button  className='btn btn-secondary'>Find Decorator</button>
+                                    booking.paymentStatus === 'Paid' &&  <button onClick={()=>handleAssignDecorator()}  className='btn btn-secondary'>Find Decorator</button>
                                 }
                             </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
+
+                    <DecoratorsDialog decorators={decorators} isOpen={isOpen} setIsOpen={setIsOpen}></DecoratorsDialog>
                   </div>
             </Container>
         </div>
