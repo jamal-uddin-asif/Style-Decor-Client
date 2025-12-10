@@ -9,8 +9,9 @@ import DecoratorsDialog from './Dialog/DecoratorsDialog';
 const ManageBookings = () => {
     const axiosSecure = useAxiosSecure()
     const [isOpen, setIsOpen] = useState(false)
+    const [clickedBooking, setClickedBooking] = useState({})
 
-    const {data: bookings = [], isLoading: bookingsLoading} = useQuery({
+    const {data: bookings = [], isLoading: bookingsLoading, refetch: bookingRefetch} = useQuery({
         queryKey: ['bookings'],
         queryFn: async()=>{
             const res =  await axiosSecure('/bookings')
@@ -27,8 +28,10 @@ const ManageBookings = () => {
     })
 
 
-    const handleAssignDecorator = () =>{
+    const handleAssignDecorator = (booking) =>{
+      setClickedBooking(booking)
         setIsOpen(true)
+
     }
 
     if(bookingsLoading){
@@ -67,10 +70,10 @@ const ManageBookings = () => {
                             <td>{booking.feet}</td>
                             <td>{booking.trackingId}</td>
                             <td>{booking.paymentStatus === 'Paid'? <span className='text-green-500'>Paid</span> : <span className='text-red-800'>Not Paid</span>}</td>
-                            <td>{booking.serviceStatus}</td>
+                            <td className={booking.serviceStatus === 'Pending'? 'text-yellow-500': 'text-green-500'}>{booking.serviceStatus}</td>
                             <td>
                                 {
-                                    booking.paymentStatus === 'Paid' &&  <button onClick={()=>handleAssignDecorator()}  className='btn btn-secondary'>Find Decorator</button>
+                                    booking.serviceStatus === 'Pending' ?  <button onClick={()=>handleAssignDecorator(booking)}  className='btn btn-secondary'>Find Decorator</button>: <span className='text-green-500'>Decorator Assigned</span>
                                 }
                             </td>
                           </tr>
@@ -78,7 +81,7 @@ const ManageBookings = () => {
                       </tbody>
                     </table>
 
-                    <DecoratorsDialog decorators={decorators} isOpen={isOpen} setIsOpen={setIsOpen}></DecoratorsDialog>
+                    <DecoratorsDialog bookingRefetch={bookingRefetch} decorators={decorators} clickedBooking={clickedBooking} isOpen={isOpen} setIsOpen={setIsOpen}></DecoratorsDialog>
                   </div>
             </Container>
         </div>

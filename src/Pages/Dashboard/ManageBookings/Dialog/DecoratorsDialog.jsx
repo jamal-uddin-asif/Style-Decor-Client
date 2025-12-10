@@ -1,10 +1,28 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import React from 'react';
+import { useAxiosSecure } from '../../../../Hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
-const DecoratorsDialog = ({isOpen, setIsOpen, decorators}) => {
+const DecoratorsDialog = ({isOpen, setIsOpen, decorators, clickedBooking, bookingRefetch}) => {
+
+  const axiosSecure = useAxiosSecure()
 
     const handleAssignDecorator = (decorator) =>{
-        console.log(decorator)
+        const assignInfo = {
+          decoratorName: decorator.name,
+          decoratorEmail: decorator.email,
+          decoratorPhoto: decorator.photo,
+          decoratorId: decorator._id,
+        }
+
+        console.log({assignInfo, clickedBooking})
+        axiosSecure.patch(`/bookings/${clickedBooking._id}`, assignInfo)
+        .then(data=>{
+          console.log(data)
+          bookingRefetch()
+          setIsOpen(false)
+          toast.success("Decorator Assigned")
+        })
     }
 
     return (
