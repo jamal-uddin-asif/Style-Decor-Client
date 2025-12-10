@@ -7,6 +7,7 @@ import SideLink from '../Components/Shared/SideLink';
 import { TiThMenu } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
 import { TbBrandBooking } from "react-icons/tb";
+import { MdMyLocation } from 'react-icons/md';
 
 const DashboardLayout = () => {
 
@@ -43,10 +44,11 @@ const DashboardLayout = () => {
     <ul className="menu font-bold  min-h-full w-80 p-4 bg-base-200">
       {/* Sidebar content here */}
       <Logo></Logo>
-      <li><SideLink to={'/dashboard/addServices'} address={'Add Services'}></SideLink></li>
+      <li ><SideLink to={'/dashboard/addServices'} address={'Add Services'}></SideLink></li>
       <li><SideLink to={'/dashboard/manageDecorator'} address={'Manage Decorator'}></SideLink></li>
       <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser />} address={'My Bookings'}></SideLink></li>
       <li><SideLink to={'/dashboard/manageBookings'} icon={<TbBrandBooking />} address={'Manage Bookings'}></SideLink></li>
+      <li><SideLink to={'/dashboard/myAssignedServices'} icon={<MdMyLocation />} address={'My Assigned Services'}></SideLink></li>
   
     </ul>
   </div>
