@@ -7,6 +7,7 @@ import { MdCancel, MdDriveFileRenameOutline } from "react-icons/md";
 
 import Swal from "sweetalert2";
 import Container from "../../../Components/Shared/Container";
+import Heading from "../../../Components/Shared/Heading";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -67,13 +68,14 @@ const MyBookings = () => {
   return (
     
     <div>
+      <Heading className={'my-10'} Heading={'Booking & Status Overview'} sub_heading={'Keep track of your service timelines, details, and confirmations.'}></Heading>
       <Container>
 
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="shadow-sm">
               <th>#</th>
               <th className="">Service Name</th>
               <th>Cost</th>
@@ -87,7 +89,7 @@ const MyBookings = () => {
           <tbody>
             
             {bookings?.map((booking, i) => (
-              <tr key={i} className="">
+              <tr key={i} className="shadow-sm">
                 <th>{i+1}</th>
                 <td >{booking.serviceName}</td>
                 <td>{booking.cost}</td>

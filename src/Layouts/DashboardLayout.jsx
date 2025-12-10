@@ -18,7 +18,7 @@ const DashboardLayout = () => {
     {/* Page content here */}
     
 
-  <nav className='bg-cyan-700'>
+  <nav className='shadow-2xl sticky top-0 z-10 bg-base-100'>
     <Container>
       <div  className='flex justify-between py-5'>
 
@@ -26,7 +26,7 @@ const DashboardLayout = () => {
         <Logo></Logo>
     </div>
     <div>
-    <label  htmlFor="my-drawer-5" className="drawer-button btn bg-amber-300 "><span className='text-cyan-600 font-bold'>Open Menu</span><TiThMenu /></label>
+    <label  htmlFor="my-drawer-5" className="drawer-button  "><span className='text-cyan-600 font-bold'></span><TiThMenu color='' size={30}/></label>
     </div>
       </div>
     </Container>

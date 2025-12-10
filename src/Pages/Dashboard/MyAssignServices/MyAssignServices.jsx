@@ -61,7 +61,7 @@ const MyAssignServices = () => {
 
   return (
     <div>
-      <Heading Heading="My Assigned Service"></Heading>
+      <Heading className={'my-10'} Heading="My Assigned Service" sub_heading={'Track, manage, and complete your decoration service assignments easily.'}></Heading>
       <Container>
         <div className="overflow-x-auto">
           <table className="table">

@@ -15,6 +15,7 @@ import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
 import PaymentSuccess from "../Pages/Dashboard/PaymentSuccess/PaymentSuccess";
 import ManageBookings from "../Pages/Dashboard/ManageBookings/ManageBookings";
 import MyAssignServices from "../Pages/Dashboard/MyAssignServices/MyAssignServices";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 export const router = createBrowserRouter([
     {
@@ -82,5 +83,10 @@ export const router = createBrowserRouter([
                 Component: PaymentSuccess
             },
         ]
+    },
+    {
+        path: '/*',
+        Component: PageNotFound
     }
+
 ])

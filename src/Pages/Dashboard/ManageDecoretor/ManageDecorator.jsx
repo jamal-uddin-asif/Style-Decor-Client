@@ -3,6 +3,7 @@ import React from "react";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../../Components/Shared/LoadingSpinner";
 import Container from "../../../Components/Shared/Container";
+import Heading from "../../../Components/Shared/Heading";
 
 const ManageDecorator = () => {
   const axiosSecure = useAxiosSecure();
@@ -35,6 +36,7 @@ const ManageDecorator = () => {
 
   return (
     <div>
+      <Heading className={'my-10 border-b-8 border-red-300 border-t-8'} Heading={'Organize Your Decorator Team'} sub_heading={'Streamline team management with easy controls and smart monitoring.'}></Heading>
       <Container>
 
       <div className="overflow-x-auto">
@@ -49,9 +51,9 @@ const ManageDecorator = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {users.map((user, i) => (
-              <tr key={i} className="">
+              <tr key={i} className="shadow-sm bg-yellow-50/20">
                 <th>{i + 1}</th>
                 <td>
                   <div className="flex items-center gap-3">
