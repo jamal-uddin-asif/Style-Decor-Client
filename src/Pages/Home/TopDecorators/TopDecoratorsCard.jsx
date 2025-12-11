@@ -7,7 +7,7 @@ const TopDecoratorsCard = ({decorator}) => {
      <Container>
 
         <div>
-             <div className="bg-white py-10 shadow-md rounded-2xl p-6 max-w-sm ">
+             <div className="bg-white py-10 shadow-md rounded-2xl md:p-6 p-2 max-w-sm ">
       {/* Quote Icon */}
       {/* <FaQuoteLeft className="text-cyan-300 text-3xl mb-4" /> */}
 
@@ -25,8 +25,8 @@ const TopDecoratorsCard = ({decorator}) => {
         </div>
 
         <div>
-          <h3 className="font-semibold text-3xl text-cyan-900">{decorator.name}</h3>
-          <p className="text-gray-500  text-xl">{decorator.email}</p>
+          <h3 className="font-semibold text-xl  md:text-3xl text-cyan-900">{decorator.name}</h3>
+          <p className="text-gray-500  md:text-xl">{decorator.email}</p>
           <p className="text-gray-500 text-sm flex items-center gap-1"> <FcRating size={20}></FcRating>5/5</p>
         </div>
       </div>

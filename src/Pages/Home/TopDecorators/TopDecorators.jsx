@@ -17,7 +17,6 @@ const TopDecorators = () => {
     },
   });
 
-  console.log(decorators);
 
   return (
     <Container>
