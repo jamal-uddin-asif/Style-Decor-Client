@@ -68,7 +68,7 @@ const MyBookings = () => {
   return (
     
     <div>
-      <Heading className={'my-10'} Heading={'Booking & Status Overview'} sub_heading={'Keep track of your service timelines, details, and confirmations.'}></Heading>
+      {/* <Heading className={'my-10'} Heading={'Booking & Status Overview'} sub_heading={'Keep track of your service timelines, details, and confirmations.'}></Heading> */}
       <Container>
 
       <div className="overflow-x-auto">

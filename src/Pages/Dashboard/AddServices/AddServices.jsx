@@ -54,18 +54,22 @@ const AddServices = () => {
   return (
     <div>
       <Container>
-        <div className="flex md:flex-row flex-col-reverse  gap-6 justify-center items-center min-h-screen">
+        <div className="flex md:flex-row flex-col-reverse  gap-6 justify-center items-center ">
           <div>
             {/* <h1 className="text-4xl font-bold text-center text-secondary">Add Your service</h1> */}
-            <img className="max-h-[80vh]" src={servicesMan} alt="" />
+            {/* <img className="max-h-[80vh]" src={servicesMan} alt="" /> */}
           </div>
 
-          <div className="card  w-full max-w-sm shrink-0 ">
+          <div className="card  w-full shrink-0 ">
             <form
               onSubmit={handleSubmit(HandleAddServices)}
               className="card-body"
             >
               <fieldset className="fieldset">
+                <div className="md:grid grid-cols-2">
+
+                <div>
+                  <fieldset className="fieldset">
                 <label className="label">Name</label>
                 <input
                   type="name"
@@ -75,9 +79,9 @@ const AddServices = () => {
                       message: "Service Name is required",
                     },
                   })}
-                  className="input outline-0 ring-4 ring-blue-900"
+                  className="input outline-0  ring-blue-900"
                   placeholder="Service Name"
-                />
+                  />
                 {errors.name && (
                   <p className="text-red-600">{errors.name.message}</p>
                 )}
@@ -88,20 +92,20 @@ const AddServices = () => {
                   {...register("cost", {
                     required: { value: true, message: "Cost is required" },
                   })}
-                  className="input outline-0 ring-4 ring-blue-900"
+                  className="input outline-0  ring-blue-900"
                   placeholder="Cost"
                 />
                 {errors.cost && (
                   <p className="text-red-600">{errors.cost.message}</p>
                 )}
 
-                <label className="label">Rating</label>
+                <label className="label ">Rating</label>
                 <input
                   type="number"
                   {...register("rating", {
                     required: { value: true, message: "Rating is required" },
                   })}
-                  className="input outline-0 ring-4 ring-blue-900"
+                  className="input outline-0  ring-blue-900"
                   placeholder="Rating"
                 />
                 {errors.rating && (
@@ -114,7 +118,7 @@ const AddServices = () => {
                   {...register("photo", {
                     required: { value: true, message: "Photo is required" },
                   })}
-                  className="input  outline-0 ring-4 ring-blue-900"
+                  className="input  outline-0  ring-blue-900"
                   placeholder="Photo"
                 />
                 {errors.photo && (
@@ -130,7 +134,7 @@ const AddServices = () => {
                       message: "Location is required",
                     },
                   })}
-                  className="input outline-0 ring-4 ring-blue-900"
+                  className="input outline-0 "
                   placeholder="Your Location"
                 />
                 {errors.location && (
@@ -142,7 +146,7 @@ const AddServices = () => {
                   {...register("category", {
                     required: { value: true, message: "Category is required" },
                   })}
-                  className="select outline-0 ring-4 ring-blue-900"
+                  className="select outline-0  ring-blue-900"
                 >
                   <option value="Home">Home</option>
                   <option value="Wedding">Wedding</option>
@@ -153,7 +157,11 @@ const AddServices = () => {
                 {errors.category && (
                   <p className="text-red-600">{errors.category.message}</p>
                 )}
+                </fieldset>
+              </div>
 
+              <div>
+                  <fieldset className="fieldset">
                 {/*Short Description  */}
                 <label className="label">Short Description</label>
                 <textarea
@@ -166,7 +174,7 @@ const AddServices = () => {
                   className="textarea "
                   placeholder="Description"
                   rows={4}
-                ></textarea>
+                  ></textarea>
                 {errors.shortDescription && (
                   <p className="text-red-600">{errors.shortDescription.message}</p>
                 )}
@@ -187,8 +195,10 @@ const AddServices = () => {
                 {errors.description && (
                   <p className="text-red-600">{errors.description.message}</p>
                 )}
-
-                <button className="btn btn-secondary mt-4">Add Service</button>
+          </fieldset>
+                </div>
+              </div>
+                <button className="btn btn-secondary max-w-sm mt-4">Add Service</button>
               </fieldset>
             </form>
           </div>

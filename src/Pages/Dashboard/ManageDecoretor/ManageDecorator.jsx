@@ -36,7 +36,7 @@ const ManageDecorator = () => {
 
   return (
     <div>
-      <Heading className={'my-10 border-b-8 border-red-300 border-t-8'} Heading={'Organize Your Decorator Team'} sub_heading={'Streamline team management with easy controls and smart monitoring.'}></Heading>
+      {/* <Heading className={'my-10 border-b-8 border-red-300 border-t-8'} Heading={'Organize Your Decorator Team'} sub_heading={'Streamline team management with easy controls and smart monitoring.'}></Heading> */}
       <Container>
 
       <div className="overflow-x-auto">

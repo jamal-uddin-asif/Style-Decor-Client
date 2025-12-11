@@ -40,7 +40,7 @@ const ManageBookings = () => {
 
     return (
         <div>
-            <Heading className={'my-10'} Heading={"User Bookings Control Panel"} sub_heading={'Review booking details, assign decorators, and manage service timelines.'} ></Heading>
+            {/* <Heading className={'my-10'} Heading={"User Bookings Control Panel"} sub_heading={'Review booking details, assign decorators, and manage service timelines.'} ></Heading> */}
             
             <Container>
 
