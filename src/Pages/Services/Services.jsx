@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
-import { useQuery } from "@tanstack/react-query";
 import { useAxiosSecure } from "../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Components/Shared/LoadingSpinner";
 import ServiceCard from "./ServiceCard";
 import { useForm } from "react-hook-form";
-import { Select } from "@headlessui/react";
-import clsx from "clsx";
+
 
 const Services = () => {
   const axiosSecure = useAxiosSecure();
   const { register, handleSubmit } = useForm();
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
-  // const [sort, setSort] = useState("");
   const [loading, setLoading] = useState(true);
   const [services, setServices] = useState([]);
 
@@ -51,8 +48,8 @@ console.log(services)
 
   return (
     <Container>
-      <div className="">
-        <div className="flex p-2 justify-center items-center min-h-20 bg-secondary">
+      <div className="min-h-screen">
+        <div className="flex py-5  justify-center items-center bg-secondary">
           <div className=" h-full md:flex items-center gap-4">
             <label className="label">
               <select
@@ -92,8 +89,8 @@ console.log(services)
             </form>
           </div>
         </div>
-        <div className="grid lg:grid-cols-4 md:grid-cols-3  gap-5">
-          {services.map((service, i) => (
+        <div className="grid  lg:grid-cols-4 md:grid-cols-3  gap-5">
+          {services.length === 0 ? <div className="flex col-span-full text-3xl text-gray-400  h-screen justify-center items-center ">Services Not found</div>: services.map((service, i) => (
             <ServiceCard service={service} key={i}></ServiceCard>
           ))}
         </div>

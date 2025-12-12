@@ -14,7 +14,7 @@ const ManageBookings = () => {
     const {data: bookings = [], isLoading: bookingsLoading, refetch: bookingRefetch} = useQuery({
         queryKey: ['bookings'],
         queryFn: async()=>{
-            const res =  await axiosSecure('/bookings')
+            const res =  await axiosSecure('/bookings/manage-bookings')
             return res.data
         }
     })
