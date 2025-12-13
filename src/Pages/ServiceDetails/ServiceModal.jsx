@@ -5,7 +5,7 @@ import { useAxiosSecure } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 const ServiceModal = ({ serviceRef, service }) => {
-  
+  console.log(service)
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure()
   const {
@@ -108,7 +108,7 @@ const ServiceModal = ({ serviceRef, service }) => {
                     {...register("customerEmail", {
                       required: {
                         value: true,
-                        message: "Name is required",
+                        message: "Email is required",
                       },
                     })}
                     className="input outline-0 ring-4 ring-blue-900"

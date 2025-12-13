@@ -39,6 +39,7 @@ const MyAssignServices = () => {
       if (result.isConfirmed) {
         const updateInfo = {
           status: status,
+          trackingId: service.trackingId
         }
 
         axiosSecure

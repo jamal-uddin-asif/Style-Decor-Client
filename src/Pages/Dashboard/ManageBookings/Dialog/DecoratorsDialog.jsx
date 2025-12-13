@@ -13,6 +13,7 @@ const DecoratorsDialog = ({isOpen, setIsOpen, decorators, clickedBooking, bookin
           decoratorEmail: decorator.email,
           decoratorPhoto: decorator.photo,
           decoratorId: decorator._id,
+          trackingId: clickedBooking.trackingId,
         }
 
         console.log({assignInfo, clickedBooking})

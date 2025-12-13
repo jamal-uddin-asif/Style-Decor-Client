@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../../Hooks/useAuth";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import { CiCreditCard1 } from "react-icons/ci";
@@ -13,14 +13,38 @@ const MyBookings = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
+  const [totalBookings, setTotalBookings] = useState(0)
+  const [totalPage, setTotalPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
+
+  const limit = 5;
+
+
+  useEffect(()=>{
+
+    axiosSecure(`/bookings/count?email=${user.email}`).then(data=>{
+      setTotalBookings(data.data.length)
+      const page = Math.ceil( data.data.length / limit)
+      setTotalPage(page)
+    },[])
+
+  },[totalBookings, axiosSecure, user])
+
   const { data: bookings = [] , refetch} = useQuery({
     queryKey: ["bookings", user.email],
     queryFn: async () => {
-      const res = await axiosSecure(`/bookings?email=${user.email}`);
-      return res.data;
+      const res = await axiosSecure(`/bookings?email=${user.email}&limit=${limit}&skip=${currentPage * limit}`);
+  
+      return res.data.bookings;
     },
   });
 
+  const handlePagination = (i) =>{
+    setCurrentPage(i)
+    console.log('inside func',i)
+    refetch()
+  }
+console.log('outside func',currentPage)
 
   const handleDelete = (booking) =>{
     Swal.fire({
@@ -68,7 +92,7 @@ const MyBookings = () => {
   return (
     
     <div>
-      {/* <Heading className={'my-10'} Heading={'Booking & Status Overview'} sub_heading={'Keep track of your service timelines, details, and confirmations.'}></Heading> */}
+      <Heading className={'my-10'} Heading={'Booking & Status Overview'} sub_heading={'Keep track of your service timelines, details, and confirmations.'}></Heading>
       <Container>
 
       <div className="overflow-x-auto">
@@ -76,7 +100,7 @@ const MyBookings = () => {
           {/* head */}
           <thead>
             <tr className="shadow-sm">
-              <th>#</th>
+              {/* <th>#</th> */}
               <th className="">Service Name</th>
               <th>Cost</th>
               <th>Feet</th>
@@ -90,7 +114,7 @@ const MyBookings = () => {
             
             {bookings?.map((booking, i) => (
               <tr key={i} className="shadow-sm">
-                <th>{i+1}</th>
+                {/* <th>{i+1}</th> */}
                 <td >{booking.serviceName}</td>
                 <td>{booking.cost}</td>
                 <td>{booking.feet}</td>
@@ -118,6 +142,13 @@ const MyBookings = () => {
             ))}
           </tbody>
         </table>
+        
+        <div className="flex justify-center py-6 gap-3">
+        {
+          [...Array(totalPage).keys()].map((i)=> <button onClick={()=>handlePagination(i)} key={i} className="btn">{i}</button>)
+        }
+        </div>
+
       </div>
       </Container>
     </div>
