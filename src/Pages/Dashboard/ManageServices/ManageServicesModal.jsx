@@ -1,18 +1,25 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 
 const ManageServicesModal = ({isOpen, setIsOpen, service}) => {
-
       const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm();
 
+      const axiosSecure = useAxiosSecure()
+
 
       const handleEditService = (data) =>{
         console.log(data)
+        axiosSecure.patch(`/service/${service._id}`, data)
+        .then(data=>{
+            console.log(data)
+            setIsOpen(false)
+        })
       }
   return (
     <div>
