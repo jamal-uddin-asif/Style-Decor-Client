@@ -18,7 +18,7 @@ const MyBookings = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const limit = 5;
-
+  
   useEffect(() => {
     axiosSecure(`/bookings/count?email=${user.email}`).then((data) => {
       setTotalBookings(data.data.length);
@@ -166,9 +166,9 @@ const MyBookings = () => {
           <div className="flex justify-center py-6 gap-3">
             {[...Array(totalPage).keys()].map((i) => (
               <button
+              className={`${i === currentPage ? 'btn btn-secondary ' : 'btn'}`}
                 onClick={() => handlePagination(i)}
                 key={i}
-                className="btn"
               >
                 {i}
               </button>
