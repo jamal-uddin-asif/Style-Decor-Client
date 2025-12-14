@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const SideLink = ({to, address, icon}) => {
     return (
-        <Link  to={to} className={`flex items-center gap-2 md:text-xl border bg-secondary/50 text-white rounded-xl p-3 mt-2`}>
+        <NavLink  to={to} className={({isActive})=>`flex items-center gap-2  border  text-white rounded-xl p-3 mt-2 ${isActive ? 'bg-secondary': 'bg-secondary/30'} `}>
            {icon} { address}
-        </Link>
+        </NavLink>
     );
 };
 

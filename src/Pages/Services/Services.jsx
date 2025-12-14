@@ -30,7 +30,6 @@ const Services = () => {
       setSearchText("");
     }
   };
-console.log(services)
 
   const handleSort = (sort) =>{
     if(sort === 'low-high'){

@@ -8,6 +8,7 @@ import { MdCancel, MdDriveFileRenameOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 import Container from "../../../Components/Shared/Container";
 import Heading from "../../../Components/Shared/Heading";
+import { Link } from "react-router";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ const MyBookings = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   const limit = 5;
-  
+
   useEffect(() => {
     axiosSecure(`/bookings/count?email=${user.email}`).then((data) => {
       setTotalBookings(data.data.length);
@@ -28,7 +29,7 @@ const MyBookings = () => {
   }, [totalBookings, axiosSecure, user]);
 
   const { data: bookings = [], refetch } = useQuery({
-    queryKey: ["bookings", user.email],
+    queryKey: ["bookings",currentPage, user.email],
     queryFn: async () => {
       const res = await axiosSecure(
         `/bookings?email=${user.email}&limit=${limit}&skip=${
@@ -132,7 +133,7 @@ const MyBookings = () => {
 
                   <td>{booking.cost}</td>
                   <td>{booking.feet}</td>
-                  <td>{booking.trackingId}</td>
+                  <td> <Link to={`/dashboard/trackings/${booking.trackingId}`}> {booking.trackingId}</Link> </td>
                   <td>{booking.serviceStatus}</td>
                   <td className="">
                     {booking?.paymentStatus === "Paid" ? (

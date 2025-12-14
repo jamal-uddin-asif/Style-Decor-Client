@@ -18,6 +18,7 @@ import MyAssignServices from "../Pages/Dashboard/MyAssignServices/MyAssignServic
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
+import Trackings from "../Pages/Dashboard/MyBookings/Trackings/Trackings";
 
 export const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myBookings',
                 Component: MyBookings
+            },
+            {
+                path: '/dashboard/trackings/:trackingId',
+                Component: Trackings
             },
             {
                 path: '/dashboard/myAssignedServices',
