@@ -21,8 +21,7 @@ const MyBookings = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [sort, setSort] = useState("");
   const [status, setStatus] = useState("");
-  console.log(status)
-  console.log(sort);
+
   const limit = 5;
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const MyBookings = () => {
       setTotalBookings(data.data.length);
       const page = Math.ceil(data.data.length / limit);
       setTotalPage(page);
-    }, []);
+    });
   }, [totalBookings, axiosSecure, user]);
 
   const { data: bookings = [], refetch } = useQuery({
@@ -232,7 +231,7 @@ const MyBookings = () => {
                     )}
                   </td>
                   <td className="flex items-center">
-                    <button>
+                    <button >
                       <MdDriveFileRenameOutline size={30} />
                     </button>
                     <button

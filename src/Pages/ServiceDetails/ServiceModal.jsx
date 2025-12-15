@@ -159,13 +159,13 @@ const ServiceModal = ({ serviceRef, service }) => {
                   <input
                     type="date"
                     {...register("bookingDate", {
-                      required: { value: true, message: "Cost is required" },
+                      required: { value: true, message: "Booking Date is required" },
                     })}
                     className="input outline-0 ring-4 ring-blue-900"
                     placeholder="Booking Date"
                   />
-                  {errors.cost && (
-                    <p className="text-red-600">{errors.cost.message}</p>
+                  {errors.bookingDate && (
+                    <p className="text-red-600">{errors.bookingDate.message}</p>
                   )}
 
                   <label className="label">How many feet you want</label>

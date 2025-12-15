@@ -3,10 +3,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 
-const ManageServicesModal = ({isOpen, setIsOpen, service}) => {
+const ManageServicesModal = ({isOpen, setIsOpen, service, setClickedService}) => {
       const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
       } = useForm();
 
@@ -19,7 +20,12 @@ const ManageServicesModal = ({isOpen, setIsOpen, service}) => {
         .then(data=>{
             console.log(data)
             setIsOpen(false)
+            reset()
         })
+      }
+      const handleCloseModal = () =>{
+        setIsOpen(false)
+        reset()
       }
   return (
     <div>
@@ -42,7 +48,7 @@ const ManageServicesModal = ({isOpen, setIsOpen, service}) => {
                 <p>Edit Your service</p>
                    <Button
                   className="inline-flex items-center gap-2 rounded-md bg-gray-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-600 data-open:bg-gray-700"
-                  onClick={()=>setIsOpen(false)}
+                  onClick={()=>handleCloseModal()}
                 >
                   Close it
                 </Button>

@@ -19,6 +19,8 @@ import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
 import Trackings from "../Pages/Dashboard/MyBookings/Trackings/Trackings";
+import RevenueMonitoring from "../Pages/Dashboard/RevenueMonitoring/RevenueMonitoring";
+import Analytics from "../Pages/Dashboard/Analytics/Analytics";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +63,14 @@ export const router = createBrowserRouter([
         path:'/dashboard',
         element:<PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+            {
+                path: '/dashboard/RevenueMonitoring',
+                Component: RevenueMonitoring
+            },
+            {
+                path: '/dashboard/analytics',
+                Component: Analytics
+            },
             {
                 path: '/dashboard/addServices',
                 Component: AddServices

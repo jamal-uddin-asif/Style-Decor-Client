@@ -15,7 +15,7 @@ const ManageServices = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: services = [], isLoading , refetch} = useQuery({
+  const { data: services = [], isLoading ,  refetch} = useQuery({
     queryKey: ["services", user.email],
     queryFn: async () => {
       const res = await axiosSecure(`/manage-services?email=${user.email}`);
@@ -110,7 +110,7 @@ const ManageServices = () => {
             ))}
           </tbody>
         </table>
-            <ManageServicesModal service={clickedService} isOpen={isOpen} setIsOpen={setIsOpen}></ManageServicesModal>
+            <ManageServicesModal service={clickedService} setClickedService={setClickedService} isOpen={isOpen} setIsOpen={setIsOpen}></ManageServicesModal>
       </div>
     </div>
   );
