@@ -12,9 +12,13 @@ import { Link } from "react-router";
 import { Field, Label, Select } from "@headlessui/react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
 import clsx from "clsx";
+import BookingEditModal from "./BookingEditModal/BookingEditModal";
 const MyBookings = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+
+  const [isOpen, setIsOpen] = useState(false)
+  const [clickedBooking, setClickedBooking] = useState({})
 
   const [totalBookings, setTotalBookings] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -92,6 +96,11 @@ const MyBookings = () => {
   const handleSortStatus = e =>{
     setStatus(e)
     refetch()
+  }
+
+  const handelOpenModal = (service) =>{
+    setClickedBooking(service)
+    setIsOpen(true)
   }
 
   return (
@@ -231,7 +240,7 @@ const MyBookings = () => {
                     )}
                   </td>
                   <td className="flex items-center">
-                    <button >
+                    <button onClick={()=>handelOpenModal(booking)}>
                       <MdDriveFileRenameOutline size={30} />
                     </button>
                     <button
@@ -260,6 +269,7 @@ const MyBookings = () => {
             ))}
           </div>
         </div>
+        <BookingEditModal refetch={refetch} clickedBooking={clickedBooking} isOpen={isOpen} setIsOpen={setIsOpen}></BookingEditModal>
       </Container>
     </div>
   );

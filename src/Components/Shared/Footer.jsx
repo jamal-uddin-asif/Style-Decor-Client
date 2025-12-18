@@ -1,7 +1,9 @@
 import React from "react";
 import Container from "./Container";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaGithub } from "react-icons/fa";
 import { Link } from "react-router";
+import Logo from "./Logo";
+import { CiMail, CiPhone } from "react-icons/ci";
 
 const Footer = () => {
   return (
@@ -32,34 +34,31 @@ const Footer = () => {
             <p className="">6px to 2am</p>
           </nav>
           <nav>
+            <h6 className="footer-title text-2xl">Contact</h6>
+            <p className="flex items-center gap-2"><CiMail />asifzehendmg@gmail.com</p>
+            <p className="flex items-center gap-2"><CiPhone />+8801610990018</p>
+          </nav>
+          <nav>
             <h6 className="footer-title">Social</h6>
             <div>
 
               <div>
-                <Link to={''} className="flex items-center gap-2">
-                  <FaFacebook /> Facebook
+                <Link to={'https://www.facebook.com/asifzehendmg/'} className="flex mb-4 items-center gap-2">
+                  <FaFacebook size={20} /> Facebook
+                </Link>
+                <Link to={'https://github.com/jamal-uddin-asif'} className="flex mb-4 items-center gap-2">
+                  <FaGithub size={20} /> Github
                 </Link>
                 
               </div>
 
             </div>
           </nav>
-          <form>
-            <h6 className="footer-title">Newsletter</h6>
-            <fieldset className="w-80">
-              <label>Enter your email address</label>
-              <div className="join">
-                <input
-                  type="text"
-                  placeholder="username@site.com"
-                  className="input input-bordered join-item"
-                />
-                <button className="btn btn-primary join-item">Subscribe</button>
-              </div>
-            </fieldset>
-          </form>
+        <div>
+          <Logo></Logo>
+        </div>
         </footer>
-        <p className="text-center text-white">
+        <p className="text-center text-white/30">
           Copyright © 2025 - All right reserved
         </p>
       </Container>

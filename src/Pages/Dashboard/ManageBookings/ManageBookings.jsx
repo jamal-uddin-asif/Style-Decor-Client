@@ -73,7 +73,7 @@ const ManageBookings = () => {
                             <td className={booking.serviceStatus === 'Pending'? 'text-yellow-500': 'text-green-500'}>{booking.serviceStatus}</td>
                             <td>
                                 {
-                                    booking.serviceStatus === 'Pending' ?  <button onClick={()=>handleAssignDecorator(booking)}  className='btn btn-secondary'>Find Decorator</button>: <span className='text-green-500'>Decorator Assigned</span>
+                                    booking.serviceStatus === 'Pending' ?  <button onClick={()=>handleAssignDecorator(booking)}  className='btn btn-secondary'>Find Decorator</button>: <span className='text-green-500'></span>
                                 }
                             </td>
                           </tr>

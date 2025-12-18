@@ -1,5 +1,5 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 
@@ -11,8 +11,13 @@ const ManageServicesModal = ({isOpen, setIsOpen, service, setClickedService}) =>
         formState: { errors },
       } = useForm();
 
-      const axiosSecure = useAxiosSecure()
+      useEffect(()=>{
+        if(isOpen && service?._id){
+          reset()
+        }
+      },[reset, isOpen, service?._id])
 
+      const axiosSecure = useAxiosSecure()
 
       const handleEditService = (data) =>{
         console.log(data)

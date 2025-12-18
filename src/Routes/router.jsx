@@ -21,6 +21,9 @@ import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
 import Trackings from "../Pages/Dashboard/MyBookings/Trackings/Trackings";
 import RevenueMonitoring from "../Pages/Dashboard/RevenueMonitoring/RevenueMonitoring";
 import Analytics from "../Pages/Dashboard/Analytics/Analytics";
+import TodaysSchedule from "../Pages/Dashboard/Today'sSchedule/TodaysSchedule";
+import Coverage from "../Pages/Coverage/Coverage";
+import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: 'services',
                 Component: Services
+            },
+            {
+                path: 'coverage',
+                Component: Coverage
             },
             {
                 path: 'services/:id',
@@ -87,9 +94,19 @@ export const router = createBrowserRouter([
                 path: '/dashboard/trackings/:trackingId',
                 Component: Trackings
             },
+
+            //Decorator only routes
             {
                 path: '/dashboard/myAssignedServices',
                 Component: MyAssignServices
+            },
+            {
+                path: '/dashboard/TodaysSchedule',
+                Component: TodaysSchedule
+            },
+            {
+                path: '/dashboard/EarningsSummary',
+                Component: EarningsSummary
             },
             {
                 path: '/dashboard/profile',
