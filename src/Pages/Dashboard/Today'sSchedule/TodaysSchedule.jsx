@@ -32,9 +32,9 @@ const formattedDate = getFormattedDate()
 
     return (
         <div>
-           <div className='grid grid-cols-3 gap-4'>
+           <div className='grid md:grid-cols-3 gap-4'>
              {
-                bookings.map(booking=><TodaysScheduleCard booking={booking}></TodaysScheduleCard>)
+               bookings.length === 0 ? <div className='min-h-screen col-span-full flex justify-center items-center '>No schedule for today</div>: bookings.map(booking=><TodaysScheduleCard booking={booking}></TodaysScheduleCard>)
              }
            </div>
         </div>

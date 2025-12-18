@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router';
 import { IoIosAddCircle, IoIosLogOut, IoIosTimer } from 'react-icons/io';
 import SideLink from '../Components/Shared/SideLink';
 import { TiThMenu } from "react-icons/ti";
-import { FaChartLine, FaChevronDown, FaChevronUp, FaUser } from "react-icons/fa";
+import { FaChartLine, FaChevronDown, FaChevronUp, FaHistory, FaUser } from "react-icons/fa";
 import { TbBrandBooking } from "react-icons/tb";
 import { MdAddchart, MdManageHistory, MdMyLocation } from 'react-icons/md';
 import { CgProfile } from "react-icons/cg";
@@ -50,7 +50,8 @@ const DashboardLayout = () => {
         </div >
         <ul className={`${show? 'hidden md:block transition-all duration-100': ''}`}>
           {/* user  */}
-          <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser />} address={'My Bookings'}></SideLink></li>
+          <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser size={25}/>} address={'My Bookings'}></SideLink></li>
+          <li><SideLink to={'/dashboard/paymentHistory'} icon={<FaHistory size={25} />} address={'Payment History'}></SideLink></li>
           {/* admin  */}
            <li ><SideLink to={'/dashboard/RevenueMonitoring'} icon={<FaChartLine size={25} />} address={'Revenue'}></SideLink></li>
            <li ><SideLink to={'/dashboard/analytics'} icon={<SiSimpleanalytics />} address={'Analytics'}></SideLink></li>

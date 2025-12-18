@@ -24,6 +24,8 @@ import Analytics from "../Pages/Dashboard/Analytics/Analytics";
 import TodaysSchedule from "../Pages/Dashboard/Today'sSchedule/TodaysSchedule";
 import Coverage from "../Pages/Coverage/Coverage";
 import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import PaymentReceipt from "../Pages/Dashboard/PaymentHistory/PaymentReceipt";
 
 export const router = createBrowserRouter([
     {
@@ -89,6 +91,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myBookings',
                 Component: MyBookings
+            },
+            {
+                path: '/dashboard/paymentHistory',
+                Component: PaymentHistory
+            },
+            {
+                path: '/dashboard/payment-receipt/:id',
+                Component: PaymentReceipt
             },
             {
                 path: '/dashboard/trackings/:trackingId',

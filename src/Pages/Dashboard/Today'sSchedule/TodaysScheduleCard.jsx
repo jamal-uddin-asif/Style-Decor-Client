@@ -5,7 +5,7 @@ const TodaysScheduleCard = ({ booking }) => {
   return (
     <div className="bg-white  shadow-2xl p-3 rounded-xl space-y-2 ">
       <div>
-        <img className="mx-auto rounded-xl hover:scale-105 transition-all" src={booking.serviceImg} alt={booking?.serviceName} />
+        <img className="mx-auto h-[200px] rounded-xl hover:scale-105 transition-all" src={booking.serviceImg} alt={booking?.serviceName} />
       </div>
       <div className="">
         <div>
