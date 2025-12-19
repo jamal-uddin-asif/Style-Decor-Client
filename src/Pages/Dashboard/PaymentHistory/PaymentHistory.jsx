@@ -15,7 +15,6 @@ const PaymentHistory = () => {
   const [currentPage, setCurrentPage] = useState(0)
   const limit = 5
 
-  console.log({totalPage, totalHistory})
     useEffect(() => {
       axiosSecure(`/bookings/payment-history/count?email=${user.email}`).then((data) => {
         setTotalHistory(data.data.length);
@@ -31,7 +30,7 @@ const PaymentHistory = () => {
       return res.data;
     },
   });
-  console.log(payments);
+
 
   if (paymentsLoading) return <LoadingSpinner></LoadingSpinner>;
 

@@ -4,7 +4,7 @@ import { CiMail, CiUser } from 'react-icons/ci';
 
 const Profile = () => {
     const {user} = useAuth()
-    console.log(user)
+
     return (
         <div className='min-h-screen   flex justify-center items-center'>
            <div className='shadow-2xl rounded-2xl p-8'>

@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useQuery } from '@tanstack/react-query';
 import { useAxiosSecure } from '../../Hooks/useAxiosSecure';
 import DynamicServices from './DynamicServices/DynamicServices';
+import LoadingSpinner from '../../Components/Shared/LoadingSpinner';
 
 
 const Home = () => {
@@ -22,13 +23,15 @@ const Home = () => {
         }
     })
 
-    console.log([...services])
+    // console.log([...services])
     const servicesByCategory = (category) =>{
         const filtered = [...services].filter(service=> service.category === category)
         return [...filtered].slice(0,4)
     }
 
-    console.log(servicesByCategory('Wedding'))
+    // console.log(servicesByCategory('Wedding'))
+
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
     return (
         <div className='bg-base-200 p-2 md:p-0'>

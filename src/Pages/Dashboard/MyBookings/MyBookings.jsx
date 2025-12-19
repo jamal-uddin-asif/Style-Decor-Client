@@ -51,7 +51,7 @@ const MyBookings = () => {
 
   const handlePagination = (i) => {
     setCurrentPage(i);
-    console.log("inside func", i);
+    // console.log("inside func", i);
     refetch();
   };
 
@@ -67,7 +67,7 @@ const MyBookings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/booking/${booking._id}`).then((data) => {
-          console.log(data.data);
+          // console.log(data.data);
           refetch();
           Swal.fire({
             title: "Your Booking has been Deleted",

@@ -16,10 +16,10 @@ const DecoratorsDialog = ({isOpen, setIsOpen, decorators, clickedBooking, bookin
           trackingId: clickedBooking.trackingId,
         }
 
-        console.log({assignInfo, clickedBooking})
+        // console.log({assignInfo, clickedBooking})
         axiosSecure.patch(`/bookings/${clickedBooking._id}`, assignInfo)
         .then(data=>{
-          console.log(data)
+          // console.log(data)
           bookingRefetch()
           setIsOpen(false)
           toast.success("Decorator Assigned")

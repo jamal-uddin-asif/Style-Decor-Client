@@ -41,10 +41,10 @@ const BookingEditModal = ({refetch, isOpen, setIsOpen, clickedBooking }) => {
   } = clickedBooking;
 
   const handleEditBooking = (data) => {
-    console.log(data);
+    // console.log(data);
     axiosSecure.patch(`/bookings/${_id}/myBooking`, data)
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       refetch()
       setIsOpen(false)
       toast.success('Edit successful')

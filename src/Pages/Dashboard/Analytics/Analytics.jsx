@@ -15,10 +15,10 @@ const Analytics = () => {
     },
   });
 
-  console.log(data);
+  // console.log(data);
   return (
-    <div>
-      <div className="md:grid space-y-4 grid-cols-2 shadow-xl p-2  md:p-5 bg-white">
+    <div className="p-2">
+      <div className="md:grid  space-y-4 grid-cols-2 shadow-xl p-2  md:p-5 bg-white">
         <div className=" ">
         <h1 className="text-2xl  font-bold flex items-center gap-2">
           <IoMdAnalytics size={40} color="green" />

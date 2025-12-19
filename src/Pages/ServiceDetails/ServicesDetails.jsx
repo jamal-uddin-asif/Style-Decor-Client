@@ -40,7 +40,7 @@ const ServicesDetails = () => {
     _id,
 } = service;
 
-console.log(service)
+
 
 
 const handleBookNow = () =>{

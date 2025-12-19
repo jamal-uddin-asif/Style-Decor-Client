@@ -3,7 +3,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../../Hooks/useAuth";
 import Container from "../../../Components/Shared/Container";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
@@ -11,6 +11,9 @@ import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 const Register = () => {
     const {createUser, updateUserProfile} = useAuth()
     const axiosSecure = useAxiosSecure()
+    const location = useLocation()
+    const navigate = useNavigate()
+
   
     const {register, handleSubmit, formState: {errors}} = useForm()
 
@@ -18,7 +21,7 @@ const Register = () => {
        
       createUser(data.email, data.password)
       .then(result=>{
-        console.log(result)
+        // console.log(result)
         toast.success("Account Created successfully")
 
         const photo = data.photo[0];
@@ -41,7 +44,7 @@ const Register = () => {
           }
           axiosSecure.post('/users', userInfo)
           .then(result =>{
-            console.log(result)
+            // console.log(result)
           })
           .catch(err=>{
             console.log(err)
@@ -49,16 +52,17 @@ const Register = () => {
            
           updateUserProfile(profileUpdateInfo)
           .then(()=>{
-            console.log('Profile updated')
+            // console.log('Profile updated')
+            navigate(location.state || '/')
           })
           .catch(err=>{
-            console.log(err)
+            // console.log(err)
           })
 
 
         })
         .catch(err=>{
-          console.log(err)
+          // console.log(err)
         })
 
 

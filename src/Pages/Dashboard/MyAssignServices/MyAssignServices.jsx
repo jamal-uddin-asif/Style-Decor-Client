@@ -45,7 +45,7 @@ const MyAssignServices = () => {
         axiosSecure
           .patch(`/bookings/${service._id}/Update-service-status`, updateInfo)
           .then((data) => {
-              console.log(data.data);
+              // console.log(data.data);
               
               refetch();
             // Swal.fire({

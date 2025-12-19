@@ -7,6 +7,7 @@ import axios from "axios";
 import { useAuth } from "../../../Hooks/useAuth";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 
 const AddServices = () => {
@@ -18,6 +19,7 @@ const AddServices = () => {
 
   const {user} = useAuth()
   const axiosSecure = useAxiosSecure()
+  const navigate = useNavigate()
 
   const HandleAddServices = async (data) => {
     const photo = data.photo[0]
@@ -28,7 +30,7 @@ const AddServices = () => {
    
     const serviceImg = res.data.data.url 
     const rating = Math.ceil(Math.random() * 5) ;
-    console.log(rating)
+    // console.log(rating)
     
     const services = {
         serviceName: data.serviceName,
@@ -43,11 +45,13 @@ const AddServices = () => {
         createdAt: new Date(),
         rating,
     }
+    console.log(services)
 
     axiosSecure.post('/services', services)
     .then(data=>{
       console.log(data.data)
       toast.success("Service Added")
+      navigate('/dashboard/manageServices')
     })
 
   };
@@ -60,7 +64,7 @@ const AddServices = () => {
             {/* <img className="max-h-[80vh]" src={servicesMan} alt="" /> */}
           </div>
 
-          <div className="card  w-full shrink-0 ">
+          <div className="card shadow-2xl w-full shrink-0 ">
             <form
               onSubmit={handleSubmit(HandleAddServices)}
               className="card-body"
@@ -82,8 +86,8 @@ const AddServices = () => {
                   className="input outline-0  ring-blue-900"
                   placeholder="Service Name"
                   />
-                {errors.name && (
-                  <p className="text-red-600">{errors.name.message}</p>
+                {errors.serviceName && (
+                  <p className="text-red-600">{errors.serviceName.message}</p>
                 )}
 
                 <label className="label">Cost</label>

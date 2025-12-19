@@ -2,17 +2,22 @@ import React from 'react';
 import Container from '../../../Components/Shared/Container';
 import { useForm } from 'react-hook-form';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { useAuth } from '../../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 
 const Login = () => {
     const {signInUser} = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+ 
+
         const {register, handleSubmit, formState: {errors}} = useForm()
   const handleSignIn =async(data)=>{
     try{
      const res = await signInUser(data.email, data.password)
-      console.log(res)
+     navigate(location.state || '/')
+
       toast.success("SignIn successful")
     }
     catch(err){
@@ -49,8 +54,8 @@ const Login = () => {
                 <a className="link link-hover">Forgot password?</a>
               </div>
               <button className="btn btn-secondary mt-4 ">SignIn</button>
-              <p className='font-semibold'>New in Style Decor? <Link className='text-blue-600 link-hover ml-2' to={'/register'}>Create Account</Link></p>
-              <SocialLogin></SocialLogin>
+              <p className='font-semibold'>New in Style Decor? <Link state={location.state} className='text-blue-600 link-hover ml-2' to={'/register'}>Create Account</Link></p>
+              <SocialLogin state={location.state}></SocialLogin>
             </fieldset>
           </form>
         </div>

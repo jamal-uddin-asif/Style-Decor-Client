@@ -48,7 +48,7 @@ const ManageBookings = () => {
                     <table className="table table-zebra">
                       {/* head */}
                       <thead>
-                        <tr>
+                        <tr className='bg-secondary text-white'>
                           <th>#</th>
                           <th className="">Service Name</th>
                           <th>Cost</th>

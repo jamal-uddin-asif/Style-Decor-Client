@@ -1,6 +1,7 @@
 # Project Name : Style Decor
 
 # Purpose
+
 - Style Decor is a modern appointment management system for a local decoration company that offers both in-studio consultations and on-site decoration services for homes and ceremonies. Users can explore decoration packages, check decorator availability, select a date & time, choose a service mode, make payments, and track their service status.
 
 - Smart appointment scheduling for consultations and services
@@ -10,10 +11,9 @@
 - Integrated payments for packages and services
 - Powerful dashboard & analytics for business insights
 
+## Live URL
 
-## Live URL 
- http://localhost:5173/
-
+https://style-decor123.netlify.app/
 
 # Key features
 
@@ -25,7 +25,7 @@
 - Decorator updates project status
 - User receives final confirmation
 
-## All NPM Packages 
+## All NPM Packages
 
 - "@headlessui/react": "^2.2.9",
 - "@tailwindcss/vite": "^4.1.17",

@@ -20,9 +20,9 @@ const Leaflet = () => {
           <h3 className="text-2xl md:text-4xl mb-5 font-semibold">City & District-Wide <span className="text-secondary">Service Availability</span></h3>
         </div>
         </div>
-        <div className="h-[450px]   w-full ">
+        <div className="md:h-[450px]  h-[300px]  w-full ">
           <MapContainer
-            className="h-[450px] "
+            className="md:h-[450px] h-[300px]"
             center={position}
             zoom={7}
             scrollWheelZoom={false}

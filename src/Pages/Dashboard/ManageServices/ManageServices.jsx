@@ -35,7 +35,7 @@ const ManageServices = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             axiosSecure.delete(`/services/${service._id}`).then((data) => {
-              console.log(data.data);
+              // console.log(data.data);
               refetch()
               Swal.fire({
                 title: "Your Service has been Deleted",
@@ -48,7 +48,7 @@ const ManageServices = () => {
   }
 
   const handleEditService = (service) =>{
-    console.log(service)
+    // console.log(service)
     setClickedService(service)
     setIsOpen(true)
 
@@ -61,9 +61,9 @@ const ManageServices = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="bg-secondary text-white">
               <th></th>
-              <th>Service</th>
+              <th className="">Service</th>
               <th>Cost</th>
               <th>Category</th>
               <th>Rating</th>
@@ -72,7 +72,7 @@ const ManageServices = () => {
           </thead>
           <tbody>
             {services.map((service, i) => (
-              <tr key={i}>
+              <tr key={i} className="shadow bg-amber-50/20">
                 <th></th>
                 <td>
                   <div className="flex items-center gap-3">
@@ -92,8 +92,8 @@ const ManageServices = () => {
                 <td>{service.cost}</td>
                 <td>{service.category}</td>
                 <td>
-                  <span className="badge badge-dash">
-                    {service.rating} <FaStar color="yellow" />
+                  <span className="badge badge-error font-semibold">
+                    {service.rating} <FaStar color="gold" />
                   </span>
                 </td>
                 <td className="flex items-center gap-2">

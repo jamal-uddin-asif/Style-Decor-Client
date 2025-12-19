@@ -88,7 +88,7 @@ const Services = () => {
             </form>
           </div>
         </div>
-        <div className="grid  lg:grid-cols-4 md:grid-cols-3  gap-5">
+        <div className="grid p-2 lg:grid-cols-4 md:grid-cols-3  gap-5">
           {services.length === 0 ? <div className="flex col-span-full text-3xl text-gray-400  h-screen justify-center items-center ">Services Not found</div>: services.map((service, i) => (
             <ServiceCard service={service} key={i}></ServiceCard>
           ))}

@@ -17,7 +17,7 @@ const Trackings = () => {
             return res.data
         }
     })
-    console.log(trackings)
+
 
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
     return (

@@ -5,7 +5,7 @@ import { useAxiosSecure } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 const ServiceModal = ({ serviceRef, service }) => {
-  console.log(service)
+  // console.log(service)
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure()
   const {
@@ -32,7 +32,7 @@ const ServiceModal = ({ serviceRef, service }) => {
   const handleBooking = (data) => {
     
     const totalAmount = cost * data.feet;
-    console.log(data);
+    // console.log(data);
     
     const serviceInfo = {
       serviceImg,
@@ -51,7 +51,7 @@ const ServiceModal = ({ serviceRef, service }) => {
 
     axiosSecure.post('/bookings', serviceInfo)
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       reset()
       serviceRef.current.close()
       toast.success("Booking Success")
@@ -124,6 +124,7 @@ const ServiceModal = ({ serviceRef, service }) => {
                   <input
                     type="name"
                     defaultValue={serviceName}
+                    readOnly
                     {...register("serviceName", {
                       required: {
                         value: true,

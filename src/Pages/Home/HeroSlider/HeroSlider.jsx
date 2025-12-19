@@ -34,15 +34,15 @@ const HeroSlider = () => {
           <SwiperSlide key={i}>
             <div className="relative bg-black">
               <img
-                className="h-[400px] w-full opacity-60"
+                className="md:h-[400px] h-[200px] w-full opacity-60"
                 src={service.serviceImg}
                 alt=""
               />
               <div className="absolute text-center text-white  inset-0 flex justify-center items-center">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1, translateX: 1 }}
-                  transition={{ duration: 0.5 }}
+                 initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
                   className="space-y-3"
                 >
                   <h1 className="text-3xl md:text-4xl lg:text-5xl   font-bold">

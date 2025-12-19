@@ -13,7 +13,7 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
   const handleMessage = (data) => {
-    console.log(data);
+    // console.log(data);
     if (!data.name || !data.message || !data.email) {
       toast.error("Your message is not completed");
       return;

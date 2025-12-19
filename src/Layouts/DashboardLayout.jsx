@@ -21,7 +21,7 @@ const DashboardLayout = () => {
   const { LogOutUser} = useAuth()
   const [show, setShow] = useState(false)
   const {role} = useRole()
-  console.log(role)
+  // console.log(role)
 
   const handleSignOut = () =>{
     LogOutUser()
@@ -29,7 +29,7 @@ const DashboardLayout = () => {
       toast.success('Logout successful')
     })
   }
-  console.log(show)
+
 
   const handleShowHide = () =>{
     if(show){
@@ -42,9 +42,9 @@ const DashboardLayout = () => {
     return (
 
    <div className='md:grid bg-base-100 relative grid-cols-12 gap-3 '>
-       <div className='md:col-span-3   bg-gray-300  col-span-5 shadow p-2 md:p-5 md:min-h-screen'>
+       <div className='md:col-span-3   bg-gray-100   col-span-5 shadow p-2 md:p-5 md:min-h-screen'>
           <ul className='md:py-6'>
-             <Logo className={'bg-blue-200 py-3 md:text-3xl'}></Logo>
+             <Logo className={'bg-blue-200 rounded-xl py-3 md:text-3xl'}></Logo>
         <div onClick={handleShowHide} className='p-2 flex md:hidden justify-center items-center bg-white'>
         {
           show ?  <FaChevronUp />: <FaChevronDown/> 

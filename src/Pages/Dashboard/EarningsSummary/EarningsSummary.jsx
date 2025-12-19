@@ -17,7 +17,6 @@ const EarningsSummary = () => {
         }
     })
 
-    console.log(earning)
 
     const calculateTotalEarn = () =>{
             let sum = 0;
@@ -26,7 +25,6 @@ const EarningsSummary = () => {
             })
             return sum
     }
-    console.log(calculateTotalEarn())
   return (
     <div>
       <div className="flex mb-6 justify-center text-2xl md:text-4xl font-semibold py-5">

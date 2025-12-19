@@ -21,10 +21,10 @@ const ManageServicesModal = ({isOpen, setIsOpen, service, refetch}) => {
       const axiosSecure = useAxiosSecure()
 
       const handleEditService = (data) =>{
-        console.log(data)
+        // console.log(data)
         axiosSecure.patch(`/service/${service._id}`, data)
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             setIsOpen(false)
             refetch()
             toast.success("Service edit successful")

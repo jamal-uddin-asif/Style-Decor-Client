@@ -18,7 +18,7 @@ const PaymentReceipt = () => {
             return res.data
         }
     })
-    console.log(receipt)
+ 
 
     return (
         <div className='flex min-h-screen justify-center items-center'>
