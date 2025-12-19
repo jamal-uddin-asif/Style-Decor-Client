@@ -48,7 +48,7 @@ const handleBookNow = () =>{
 }
   return (
     <Container>
-      <div className="pt-6 px-3 min-h-screen md:pt-16 md:flex gap-6">
+      <div className="py-6 px-3 min-h-screen md:pt-16 md:flex gap-6">
         <div className="flex-2">
             <h1 className="text-3xl md:text-5xl font-bold">{serviceName}</h1>
             <p className="line-clamp-2">{shortDescription}</p>

@@ -2,8 +2,9 @@ import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
-const ManageServicesModal = ({isOpen, setIsOpen, service, setClickedService}) => {
+const ManageServicesModal = ({isOpen, setIsOpen, service, refetch}) => {
       const {
         register,
         handleSubmit,
@@ -25,6 +26,8 @@ const ManageServicesModal = ({isOpen, setIsOpen, service, setClickedService}) =>
         .then(data=>{
             console.log(data)
             setIsOpen(false)
+            refetch()
+            toast.success("Service edit successful")
             reset()
         })
       }

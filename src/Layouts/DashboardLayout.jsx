@@ -15,11 +15,13 @@ import { GrUserManager } from "react-icons/gr";
 import { SiSimpleanalytics } from 'react-icons/si';
 import { useState } from 'react';
 import { FaSackDollar } from 'react-icons/fa6';
+import { useRole } from '../Hooks/useRole';
 
 const DashboardLayout = () => {
   const { LogOutUser} = useAuth()
   const [show, setShow] = useState(false)
-
+  const {role} = useRole()
+  console.log(role)
 
   const handleSignOut = () =>{
     LogOutUser()
@@ -50,19 +52,34 @@ const DashboardLayout = () => {
         </div >
         <ul className={`${show? 'hidden md:block transition-all duration-100': ''}`}>
           {/* user  */}
-          <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser size={25}/>} address={'My Bookings'}></SideLink></li>
-          <li><SideLink to={'/dashboard/paymentHistory'} icon={<FaHistory size={25} />} address={'Payment History'}></SideLink></li>
+          {
+            role === 'User' && <>
+            <li><SideLink to={'/dashboard/myBookings'} icon={<FaUser size={25}/>} address={'My Bookings'}></SideLink></li>
+            <li><SideLink to={'/dashboard/paymentHistory'} icon={<FaHistory size={25} />} address={'Payment History'}></SideLink></li>
+            </>
+          }
+
           {/* admin  */}
-           <li ><SideLink to={'/dashboard/RevenueMonitoring'} icon={<FaChartLine size={25} />} address={'Revenue'}></SideLink></li>
-           <li ><SideLink to={'/dashboard/analytics'} icon={<SiSimpleanalytics />} address={'Analytics'}></SideLink></li>
+          {
+            role === 'Admin' && <>    
+           <li ><SideLink to={'/dashboard/RevenueMonitoring'} icon={<FaChartLine size={30} />} address={'Revenue'}></SideLink></li>
+           <li ><SideLink to={'/dashboard/analytics'} icon={<SiSimpleanalytics size={25}/>} address={'Analytics'}></SideLink></li>
           <li ><SideLink to={'/dashboard/addServices'} icon={<MdAddchart size={30}/>} address={'Add Services'}></SideLink></li>
           <li><SideLink to={'/dashboard/manageDecorator'} icon={<GrUserManager size={28}/>} address={'Manage Decorator'}></SideLink></li>
           <li><SideLink to={'/dashboard/manageBookings'} icon={<TbBrandBooking size={30}/>} address={'Manage Bookings'}></SideLink></li>
           <li><SideLink to={'/dashboard/manageServices'} icon={<MdManageHistory size={30} />} address={'Manage Services'}></SideLink></li>
+            </>
+          }
+
           {/* Decorator  */}
+          {
+            role === 'Decorator' && <>
+            
           <li><SideLink to={'/dashboard/myAssignedServices'} icon={<MdMyLocation size={25}/>} address={'My Assigned Services'}></SideLink></li>
           <li><SideLink to={'/dashboard/TodaysSchedule'} icon={<IoIosTimer size={25} />} address={'Todays Schedule'}></SideLink></li>
           <li><SideLink to={'/dashboard/EarningsSummary'} icon={<FaSackDollar  size={25} />} address={'Earnings Summary'}></SideLink></li>
+            </>
+          }
           </ul>
           </ul>
 

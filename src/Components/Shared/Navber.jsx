@@ -89,7 +89,7 @@ console.log(show)
   }
 
   return (
-    <div className="bg-base-100  shadow-sm">
+    <div className="bg-base-100 shadow-sm">
       <Container>
         <div className="navbar ">
           <div className="navbar-start">

@@ -110,7 +110,7 @@ const ManageServices = () => {
             ))}
           </tbody>
         </table>
-            <ManageServicesModal service={clickedService} setClickedService={setClickedService} isOpen={isOpen} setIsOpen={setIsOpen}></ManageServicesModal>
+            <ManageServicesModal refetch={refetch} service={clickedService} setClickedService={setClickedService} isOpen={isOpen} setIsOpen={setIsOpen}></ManageServicesModal>
       </div>
     </div>
   );

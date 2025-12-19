@@ -39,7 +39,7 @@ const Footer = () => {
             <p className="flex items-center gap-2"><CiPhone />+8801610990018</p>
           </nav>
           <nav>
-            <h6 className="footer-title">Social</h6>
+            <h6 className="footer-title text-2xl">Social</h6>
             <div>
 
               <div>

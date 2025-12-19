@@ -264,7 +264,7 @@ const MyBookings = () => {
                 onClick={() => handlePagination(i)}
                 key={i}
               >
-                {i}
+                {i+1}
               </button>
             ))}
           </div>

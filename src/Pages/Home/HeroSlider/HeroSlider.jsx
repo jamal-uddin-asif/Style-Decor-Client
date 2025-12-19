@@ -48,10 +48,10 @@ const HeroSlider = () => {
                   <h1 className="text-3xl md:text-4xl lg:text-5xl   font-bold">
                     {service.serviceName}
                   </h1>
-                  <p className="text-xl">{service.shortDescription}</p>
+                  {/* <p className="text-xl">{service.shortDescription}</p> */}
                   <Link
                     to={`/services/${service._id}`}
-                    className="btn btn-active min-w-50"
+                    className="btn btn-active hover:bg-secondary min-w-50"
                   >
                     Book Now
                   </Link>

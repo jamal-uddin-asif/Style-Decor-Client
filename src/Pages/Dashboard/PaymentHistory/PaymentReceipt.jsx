@@ -58,7 +58,7 @@ const PaymentReceipt = () => {
                     </div>
                     <div className='flex justify-between'>
                         <p className='font-semibold text-2xl'>Total Cost:</p>
-                        <h3 className='text-2xl font-semibold'>{receipt.cost}</h3>
+                        <h3 className='text-2xl font-semibold'>${receipt.cost}</h3>
                     </div>
                 </div>
                 <div className='flex justify-end'>

@@ -1,16 +1,50 @@
-# React + Vite
+# Project Name : Style Decor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Purpose
+- Style Decor is a modern appointment management system for a local decoration company that offers both in-studio consultations and on-site decoration services for homes and ceremonies. Users can explore decoration packages, check decorator availability, select a date & time, choose a service mode, make payments, and track their service status.
 
-Currently, two official plugins are available:
+- Smart appointment scheduling for consultations and services
+- Decorator availability and specialty management
+- On-site service coordination workflow
+- Real-time project status updates
+- Integrated payments for packages and services
+- Powerful dashboard & analytics for business insights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Live URL 
+ http://localhost:5173/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+# Key features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User browses decoration packages and services
+- Selects preferred date & time slot
+- Checks the decorator's availability and expertise
+- Makes payment for selected package
+- For on-site service → Admin assigns decorator team
+- Decorator updates project status
+- User receives final confirmation
+
+## All NPM Packages 
+
+- "@headlessui/react": "^2.2.9",
+- "@tailwindcss/vite": "^4.1.17",
+- "@tanstack/react-query": "^5.90.12",
+- "@tanstack/react-query-devtools": "^5.91.1",
+- "axios": "^1.13.2",
+- "firebase": "^12.6.0",
+- "framer-motion": "^12.23.25",
+- "leaflet": "^1.9.4",
+- "react": "^19.0.0-rc.1",
+- "react-dom": "^19.0.0-rc.1",
+- "react-hook-form": "^7.68.0",
+- "react-hot-toast": "^2.6.0",
+- "react-icons": "^5.5.0",
+- "react-leaflet": "^5.0.0-rc.2",
+- "react-router": "^7.10.1",
+- "react-spinners": "^0.17.0",
+- "recharts": "^3.6.0",
+- "stripe": "^20.0.0",
+- "sweetalert2": "^11.26.4",
+- "swiper": "^12.0.3",
+- "tailwindcss": "^4.1.17"

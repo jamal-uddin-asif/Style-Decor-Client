@@ -26,11 +26,11 @@ const RevenueMonitoring = () => {
     <div className="p-3">
         <Heading className={'mb-5 rounded-2xl'} Heading={'Revenue Monitoring'}></Heading>
       <div className="grid  grid-cols-1 md:grid-cols-2 gap-10">
-        <div className=" text-center bg-secondary/20 rounded-2xl p-15">
+        <div className=" text-center bg-white shadow-2xl rounded-2xl p-15">
           <h2 className="text-2xl font-semibold">Paid bookings</h2>
           <h2 className="text-4xl font-semibold ">{bookings.length}</h2>
         </div>
-        <div className="text-center bg-secondary/20 rounded-2xl p-15">
+        <div className="text-center bg-white shadow-2xl rounded-2xl p-15">
           <h2 className="text-2xl font-semibold">Total Earn</h2>
           <h2 className="text-4xl font-semibold ">$ {sumOfbookingsCost()}</h2>
         </div>

@@ -73,17 +73,22 @@ const ManageDecorator = () => {
                 <td>{user.email}</td>
                 <td>{user.role}</td>
                 <td>
+                  {
+                    user.role !== 'Admin' && <>
+                    
                     {user.role === 'User'? (
-                  <button onClick={()=>handleRoleStatus(user, 'Decorator')} className="btn btn-ghost btn-xs">
+                      <button onClick={()=>handleRoleStatus(user, 'Decorator')} className="btn btn-ghost btn-xs">
                     <span className="badge badge-outline">Make Decorator</span>
                   </button>
 
-                    ): (
+): (
 
-                  <button onClick={()=> handleRoleStatus(user, 'User')} className="btn btn-ghost btn-xs">
+  <button onClick={()=> handleRoleStatus(user, 'User')} className="btn btn-ghost btn-xs">
                     <span className="badge badge-outline">Make User</span>
                   </button>
                     )
+                    }
+                    </>
                     }
                 </td>
               </tr>

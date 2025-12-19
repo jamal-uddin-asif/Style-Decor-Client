@@ -26,6 +26,8 @@ import Coverage from "../Pages/Coverage/Coverage";
 import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import PaymentReceipt from "../Pages/Dashboard/PaymentHistory/PaymentReceipt";
+import DecoratorRoute from "./DecoratorRoute";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +74,10 @@ export const router = createBrowserRouter([
         path:'/dashboard',
         element:<PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
+            {
+                index: true, 
+                Component: DashboardHome
+            },
             {
                 path: '/dashboard/RevenueMonitoring',
                 Component: RevenueMonitoring
