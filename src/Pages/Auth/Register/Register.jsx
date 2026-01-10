@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
+import { IoIosCreate } from "react-icons/io";
 
 const Register = () => {
     const {createUser, updateUserProfile} = useAuth()
@@ -80,7 +81,7 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-screen">
 
         <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-4xl font-bold text-center text-secondary">Create Account</h1>
+          <h1 className="text-xl font-bold pl-5 pt-6 text-secondary">Create Style Decor Account</h1>
           <form onSubmit={handleSubmit(handleRegister)} className="card-body">
             <fieldset className="fieldset">
 
@@ -105,7 +106,7 @@ const Register = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-secondary mt-4">Create Account</button>
+              <button className="btn btn-secondary mt-4">Create Account <IoIosCreate size={22} /></button>
                             <p className='font-semibold'>Already have an Style Decor account? <Link className='text-blue-600 link-hover ml-2' to={'/login'}>SignIn</Link></p>
 
               <SocialLogin></SocialLogin>

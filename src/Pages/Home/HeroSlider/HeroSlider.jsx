@@ -20,7 +20,7 @@ const HeroSlider = () => {
   return (
     <Container>
 
-    <div className=" py-10 md:mb-5">
+    <div className=" md:mb-5">
       <Swiper
         autoplay={{
           delay: 2500,
@@ -34,28 +34,28 @@ const HeroSlider = () => {
           <SwiperSlide key={i}>
             <div className="relative bg-black">
               <img
-                className="md:h-[400px] h-[200px] w-full opacity-60"
+                className="md:h-[400px]  object-cover h-[200px] w-full "
                 src={service.serviceImg}
                 alt=""
               />
               <div className="absolute text-center text-white  inset-0 flex justify-center items-center">
-                <motion.div
+                {/* <motion.div
                  initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                   className="space-y-3"
-                >
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl   font-bold">
+                > */}
+                  {/* <h1 className="text-3xl md:text-4xl lg:text-5xl   font-bold">
                     {service.serviceName}
-                  </h1>
+                  </h1> */}
                   {/* <p className="text-xl">{service.shortDescription}</p> */}
-                  <Link
+                  {/* <Link
                     to={`/services/${service._id}`}
                     className="btn btn-active hover:bg-secondary min-w-50"
                   >
                     Book Now
-                  </Link>
-                </motion.div>
+                  </Link> */}
+                {/* </motion.div> */}
               </div>
             </div>
           </SwiperSlide>

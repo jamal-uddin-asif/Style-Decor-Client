@@ -3,6 +3,7 @@ import Heading from "../../Components/Shared/Heading";
 import Container from "../../Components/Shared/Container";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import axios from "axios";
+import SectionTitle from "../../Components/Shared/SectionTitle";
 
 const Coverage = () => {
       const [center, setCenter] = useState([]);
@@ -17,10 +18,7 @@ const Coverage = () => {
   return (
     <div>
       <div className="min-h-screen p-3">
-        <Heading
-          className={"my-5"}
-          Heading={"Out services coverage areas"}
-        ></Heading>
+        <SectionTitle className={'my-10'} base={'Out services '} color={' coverage areas'}/>
         <Container>
            <div className="md:grid grid-cols-2  py-10">
                  <div className="flex justify-center text-center items-center ">

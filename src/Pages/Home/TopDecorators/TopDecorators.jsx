@@ -17,37 +17,17 @@ const TopDecorators = () => {
     },
   });
 
-
   return (
     <Container>
-      <div className="py-10 md:py-40">
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={3}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          coverflowEffect={{
-            rotate: 30,
-            stretch: "50%",
-            depth: 200,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="mySwiper "
-        >
-          {decorators.map((decorator, i) => (
-            <SwiperSlide key={i}>
-              <TopDecoratorsCard decorator={decorator}></TopDecoratorsCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 my-5 md:my-10 lg:my-20'>
+        {decorators.map((decorator, i) => (
+          <SwiperSlide key={i}>
+            <TopDecoratorsCard decorator={decorator}></TopDecoratorsCard>
+          </SwiperSlide>
+        ))}
       </div>
+     
     </Container>
   );
 };

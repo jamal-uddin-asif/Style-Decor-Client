@@ -5,7 +5,8 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { useAuth } from '../../../Hooks/useAuth';
 import toast from 'react-hot-toast';
-
+import { IoIosLogIn } from 'react-icons/io';
+import { TbMoodHappy } from "react-icons/tb";
 const Login = () => {
     const {signInUser} = useAuth()
     const location = useLocation()
@@ -34,7 +35,10 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen">
 
         <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-4xl font-bold text-center text-secondary">Welcome Back</h1>
+          <div className='flex justify-center pt-5'>
+
+          <h1 className="text-3xl font-bold text-center text-secondary flex items-center gap-2 ">Welcome Back <TbMoodHappy size={30} /></h1>
+          </div>
           <form onSubmit={handleSubmit(handleSignIn)}  className="card-body">
             <fieldset className="fieldset">
 
@@ -53,7 +57,7 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-secondary mt-4 ">SignIn</button>
+              <button className="btn btn-secondary mt-4 ">SignIn <IoIosLogIn size={30}  /></button>
               <p className='font-semibold'>New in Style Decor? <Link state={location.state} className='text-blue-600 link-hover ml-2' to={'/register'}>Create Account</Link></p>
               <SocialLogin state={location.state}></SocialLogin>
             </fieldset>

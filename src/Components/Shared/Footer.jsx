@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
         </footer>
         <p className="text-center text-white/30">
-          Copyright © 2025 - All right reserved
+          Copyright © 2026 - All right reserved
         </p>
       </Container>
     </div>

@@ -7,14 +7,16 @@ import Container from "../../../Components/Shared/Container";
 const Leaflet = () => {
   const [center, setCenter] = useState([]);
   const position = [23.685, 90.3563];
+
   useEffect(() => {
     axios("/serviceCenter.json").then((data) => {
       setCenter(data.data);
     });
-  });
+  },[]);
+
   return (
     <Container>
-      <div className="md:grid grid-cols-2 py-10">
+      <div className="md:grid  grid-cols-2 py-10">
         <div className="flex justify-center text-center items-center ">
           <div>
           <h3 className="text-2xl md:text-4xl mb-5 font-semibold">City & District-Wide <span className="text-secondary">Service Availability</span></h3>

@@ -10,7 +10,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useAxiosSecure } from '../../Hooks/useAxiosSecure';
 import DynamicServices from './DynamicServices/DynamicServices';
 import LoadingSpinner from '../../Components/Shared/LoadingSpinner';
-
+import SectionTitle from '../../Components/Shared/SectionTitle';
+import Hero from '../../Components/LandingPage/Hero';
+import Stats from '../../Components/LandingPage/Stats';
+import { Process } from '../../Components/LandingPage/HowItWorks';
+import { WhyUs } from '../../Components/LandingPage/WhyUs';
+import { Portfolio } from '../../Components/LandingPage/Portfolio';
 
 const Home = () => {
     const axiosSecure = useAxiosSecure()
@@ -19,7 +24,7 @@ const Home = () => {
         queryKey: ['services'],
         queryFn: async()=>{
             const res = await axiosSecure('/services')
-            return res.data
+            return res.data.result
         }
     })
 
@@ -36,18 +41,27 @@ const Home = () => {
     return (
         <div className='bg-base-200 p-2 md:p-0'>
 
-            <HeroSlider></HeroSlider>
+            <Hero/>
+
+         
+
             <DynamicServices servicesByCategory={servicesByCategory}></DynamicServices>
 
 
-            <Heading Heading={"Our Most Popular Decorators"} sub_heading={'Meet the skilled professionals trusted by thousands of clients'}></Heading>
+            <SectionTitle base={'Our Most Popular'} color={'Decorators'} sub={'Meet the skilled professionals trusted by thousands of clients'}/>
             <TopDecorators></TopDecorators>
 
             
-
-            <Heading className='mb-15' Heading={"Our services Coverage Area"}></Heading>
+            <SectionTitle base={'Our services'} color={'Coverage Area'}/>
            <Leaflet></Leaflet>
 
+           <Stats/>
+
+           <Process/>
+
+           <WhyUs/>
+
+           <Portfolio/>
 
         </div>
     );
