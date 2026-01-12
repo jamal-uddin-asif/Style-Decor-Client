@@ -46,7 +46,7 @@ const PaymentHistory = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="shadow-2xl bg-secondary text-white">
+            <tr className="shadow-2xl bg-secondary text-base-100">
               <th></th>
               <th>service</th>
               <th>tracking ID</th>
@@ -58,7 +58,7 @@ const PaymentHistory = () => {
           <tbody>
             {
               payments.map((payment, i)=>(
-            <tr key={i} className="shadow-2xl bg-white ">
+            <tr key={i} className="shadow-2xl bg-white dark:bg-base-100">
               <th>{i+1}</th>
               <td>{payment?.serviceName}</td>
               <td>{payment?.trackingId}</td>

@@ -6,12 +6,13 @@ import { GiOfficeChair } from "react-icons/gi";
 import { SiGotomeeting } from "react-icons/si";
 import { Link } from "react-router";
 import { ImOffice } from "react-icons/im";
+import { motion } from "framer-motion";
 
 const DynamicServices = ({ servicesByCategory }) => {
   return (
     <div>
       <Container>
-        <div className="flex text-center justify-center items-center ">
+        {/* <div className="flex text-center justify-center items-center ">
           <div className="my-10">
             <h1 className="text-3xl mb-3 md:text-4xl font-bold">
               Category-Based{" "}
@@ -22,10 +23,14 @@ const DynamicServices = ({ servicesByCategory }) => {
               seminar, and more.
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Wedding  */}
-        <div id="wedding" className="mb-20">
+        <motion.div
+        initial={{opacity: 0, y: 20}}
+        animate={{opacity: 1, y: 0}}
+        transition={{delay: 0.2, duration: 0.5}}
+        id="wedding" className="mb-20">
           <h3 className="flex mb-4 items-center gap-2 text-2xl font-semibold">
             <MdOutlinePartyMode />
             Weeding Services
@@ -35,10 +40,14 @@ const DynamicServices = ({ servicesByCategory }) => {
               <ServiceCard service={service}></ServiceCard>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Home  */}
-        <div id="home" className="mb-20">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+        id="home" className="mb-20">
           <h3 className="flex mb-4 items-center gap-2 text-2xl font-semibold">
             <MdAddHomeWork />
             Home Services
@@ -48,7 +57,7 @@ const DynamicServices = ({ servicesByCategory }) => {
               <ServiceCard service={service}></ServiceCard>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* meeting  */}
         <div id="meeting" className="mb-20">

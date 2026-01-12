@@ -27,7 +27,7 @@ const Trackings = () => {
             <div className='space-y-4'>
                 {
                     trackings.map((tracking, i)=>(
-                <div key={i} className='grid grid-cols-2 shadow-xl py-4 bg-white'>
+                <div key={i} className='grid grid-cols-2 shadow-xl py-4 bg-base-100'>
                     <div className='text-end font-semibold '>{tracking.status}</div>
                     <div className='flex items-center gap-2'><IoCheckmarkDoneCircleSharp size={30} color='green'/> <div className='font-semibold'> {tracking.createdAt}</div></div>
                    

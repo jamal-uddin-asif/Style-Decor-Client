@@ -7,17 +7,20 @@ import toast from "react-hot-toast";
 import { GoSignOut } from "react-icons/go";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { ClipLoader, FadeLoader } from "react-spinners";
+import SwitchMode from "./Swich";
+import { BiMenu } from "react-icons/bi";
+import { ImMenu3, ImMenu4 } from "react-icons/im";
 
 const Navber = () => {
   const { user, LogOutUser, loading } = useAuth();
   const [show, setShow] = useState(false)
-console.log(show)
+  
   const links = (
     <>
       <li className="font-semibold">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-secondary font-bold" : ""
+            isActive ? "text-white dark:text-secondary font-bold" : ""
           }
           to={"/"}
         >
@@ -28,7 +31,7 @@ console.log(show)
       <li className="font-semibold">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-secondary font-bold" : ""
+            isActive ? "text-white dark:text-secondary font-bold" : ""
           }
           to={"/services"}
         >
@@ -39,7 +42,7 @@ console.log(show)
       <li className="font-semibold">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-secondary font-bold" : ""
+            isActive ? "text-white dark:text-secondary font-bold" : ""
           }
           to={"/coverage"}
         >
@@ -50,7 +53,7 @@ console.log(show)
       <li className="font-semibold">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-secondary font-bold" : ""
+            isActive ? "text-white dark:text-secondary font-bold" : ""
           }
           to={"/about"}
         >
@@ -60,7 +63,7 @@ console.log(show)
       <li className="font-semibold">
         <NavLink
           className={({ isActive }) =>
-            isActive ? "text-secondary font-bold" : ""
+            isActive ? "text-white dark:text-secondary font-bold" : ""
           }
           to={"/contact"}
         >
@@ -89,7 +92,7 @@ console.log(show)
   }
 
   return (
-    <div className="bg-base-100 md:py-3 shadow-sm">
+    <div className="bg-primary md:py-3 shadow-sm">
       <Container>
         <div className="navbar ">
           <div className="navbar-start">
@@ -128,21 +131,30 @@ console.log(show)
           </div>
           {/* <div className="navbar-center ">
       </div> */}
-          <div className="navbar-end">
+          <div className="navbar-end ">
             <ul className=" space-x-8 mx-8 menu-horizontal px-1 hidden lg:flex">
               {links}
             </ul>
-            <div>
+
+            <div
+                 onClick={()=>handleShowHide()}
+            className="  border-gray-400 flex items-center gap-1 rounded-sm ">
+              <div>
+               {
+                show ? <ImMenu3 size={30} />: <ImMenu4 size={30}/>
+               }
+               
+              </div>
               {loading ? <div> <ClipLoader /></div>: user ? (
                 <img
-                 onClick={()=>handleShowHide()}
+            
                   className="rounded-full h-10 w-10"
                   src={user?.photoURL}
                   alt=""
                 />
               ) : (
                 <img
-                onClick={()=>handleShowHide()}
+           
                   className="rounded-full h-10 w-10"
                   src="https://img.icons8.com/?size=100&id=7820&format=png&color=000000"
                   alt=""
@@ -152,8 +164,14 @@ console.log(show)
                 <div>
                   <Link to={'/dashboard'} className="btn btn-secondary"><MdOutlineSpaceDashboard size={22} /> DashBoard</Link>
                 </div>
+
+                 <div className="flex items-center bg-secondary p-2 rounded-xl">
+                  <small className="text-white">Swich mode</small>
+                  <SwitchMode/>
+                </div>
+                
                 {user ? (
-                  <button className="btn text-white bg-red-500 w-full" onClick={handleSignOut}>
+                  <button className="btn  bg-primary w-full" onClick={handleSignOut}>
                    <GoSignOut size={22}/> SignOut
                   </button>
                 ) : (
@@ -161,6 +179,8 @@ console.log(show)
                     SignIn
                   </Link>
                 )}
+
+               
               </div>
             </div>
           </div>

@@ -18,14 +18,14 @@ export const WhyUs = () => (
         />
       </div>
       <div className=" order-1 lg:order-2 space-y-6">
-        <h2 className="text-4xl font-bold text-slate-900">
+        <h2 className="text-4xl font-bold ">
           Why Choose Our Service?
         </h2>
         <div className="space-y-4">
           {why.map((text, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 text-lg text-slate-700"
+              className="flex items-center gap-3 text-lg "
             >
               <BiCheckDouble className="text-indigo-600 text-2xl" /> {text}
             </div>

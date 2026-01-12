@@ -34,11 +34,11 @@ const EarningsSummary = () => {
         </h2>
       </div>
       <div className="md:flex justify-center gap-10 ">
-        <div className="text-center space-y-3 bg-white shadow-2xl rounded-2xl p-9">
+        <div className="text-center space-y-3 bg-base-300 shadow-2xl rounded-2xl p-9">
             <h2  className="text-2xl md:text-3xl">Service completed</h2>
             <p className="text-3xl font-semibold text-secondary">{earning.length}</p>
         </div>
-        <div className="text-center space-y-3 bg-white  shadow-2xl rounded-2xl p-9">
+        <div className="text-center space-y-3 bg-base-300  shadow-2xl rounded-2xl p-9">
             <h2 className="text-2xl md:text-3xl">Total earning</h2>
             <p className="text-3xl font-semibold flex items-center justify-center  text-secondary"><LuDollarSign size={30}/>{calculateTotalEarn()}</p>
         </div>

@@ -42,10 +42,10 @@ const DashboardLayout = () => {
     return (
 
    <div className='md:grid bg-base-100 relative grid-cols-12 gap-3 '>
-       <div className='md:col-span-3   bg-gray-100   col-span-5 shadow p-2 md:p-5 md:min-h-screen'>
+       <div className='md:col-span-3   bg-base-100    col-span-5 shadow-xl p-2 md:p-5 md:min-h-screen'>
           <ul className='md:py-6'>
-             <Logo className={'bg-blue-200 rounded-xl py-3 md:text-3xl'}></Logo>
-        <div onClick={handleShowHide} className='p-2 flex md:hidden justify-center items-center bg-white'>
+             <Logo className={'bg-primary rounded-xl p-3 md:text-3xl'}></Logo>
+        <div onClick={handleShowHide} className='p-2 flex md:hidden justify-center items-center bg-base-300'>
         {
           show ?  <FaChevronUp />: <FaChevronDown/> 
         }  
@@ -86,7 +86,7 @@ const DashboardLayout = () => {
           <div className={`md:py-10 border-t ${show? 'hidden md:block transition-all duration-100': ''}`}>
             <ul>
               <li><SideLink to={'/dashboard/profile'} icon={<CgProfile />} address={'Profile'}></SideLink></li>
-              <button onClick={()=>handleSignOut()} className='btn bg-amber-400 w-full mt-2 rounded-xl p-'><IoIosLogOut size={30} />Logout</button>
+              <button onClick={()=>handleSignOut()} className='btn bg-primary w-full mt-2 rounded-xl p-'><IoIosLogOut size={30} />Logout</button>
             </ul>
           </div>
           

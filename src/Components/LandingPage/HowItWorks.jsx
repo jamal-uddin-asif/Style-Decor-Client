@@ -20,7 +20,7 @@ const process = [
 ];
 
 export const Process = () => (
-  <section className="py-20 bg-slate-50 px-6 text-center">
+  <section className="py-20  px-6 text-center">
     <SectionTitle base={'How It'} color={'Works'}/>
     <div className="flex flex-col mt-12 md:flex-row justify-center items-center gap-12">
       {process.map((step, i) => (
@@ -29,7 +29,7 @@ export const Process = () => (
             {step.icon}
           </div>
           <h4 className="font-bold text-lg">{step.title}</h4>
-          <p className="text-slate-500 text-sm">{step.desc}</p>
+          <p className="text-slate-500 dark:text-base-content text-sm">{step.desc}</p>
         </div>
       ))}
     </div>

@@ -86,26 +86,24 @@ const Register = () => {
             <fieldset className="fieldset">
 
               <label className="label">Name</label>
-              <input type="name" {...register('name', {required:{value:true, message:'Name is required'}})} className="input outline-0 ring-4 ring-blue-900" placeholder="Full Name" />
+              <input type="name" {...register('name', {required:{value:true, message:'Name is required'}})} className="input outline-0  ring-blue-900" placeholder="Full Name" />
                 {errors.name && <p className="text-red-600">{errors.name.message}</p>}
 
               <label className="label">Email</label>
-              <input type="email" {...register('email',{required:{value:true, message:'Email is required'}})} className="input outline-0 ring-4 ring-blue-900" placeholder="Email" />
+              <input type="email" {...register('email',{required:{value:true, message:'Email is required'}})} className="input outline-0  ring-blue-900" placeholder="Email" />
                 {errors.email && <p className="text-red-600">{errors.email.message}</p>}
 
               <label className="label">Photo</label>
-              <input type="file" {...register('photo', {required:{value:true, message:'Photo is required'}})} className="input  outline-0 ring-4 ring-blue-900" placeholder="Photo" />
+              <input type="file" {...register('photo', {required:{value:true, message:'Photo is required'}})} className="input  outline-0  ring-blue-900" placeholder="Photo" />
               {errors.photo && <p className="text-red-600">{errors.photo.message}</p>}
 
               <label className="label">Password</label>
               <input type="password" {...register('password', {required: {
                 value: true,
                 message: 'Password is required'
-              }})} className="input outline-0 ring-4 ring-blue-900" placeholder="Password" />
+              }})} className="input outline-0  ring-blue-900" placeholder="Password" />
               {errors.password && <p className="text-red-600">{errors.password.message}</p>}
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
+     
               <button className="btn btn-secondary mt-4">Create Account <IoIosCreate size={22} /></button>
                             <p className='font-semibold'>Already have an Style Decor account? <Link className='text-blue-600 link-hover ml-2' to={'/login'}>SignIn</Link></p>
 

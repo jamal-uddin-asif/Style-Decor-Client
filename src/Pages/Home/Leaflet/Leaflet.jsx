@@ -24,7 +24,7 @@ const Leaflet = () => {
         </div>
         <div className="md:h-[450px]  h-[300px]  w-full ">
           <MapContainer
-            className="md:h-[450px] h-[300px]"
+            className="md:h-[450px] h-[300px] z-0"
             center={position}
             zoom={7}
             scrollWheelZoom={false}

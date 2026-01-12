@@ -8,7 +8,7 @@ const About = () => {
       <div className="flex md:flex-row flex-col-reverse  gap-10 p-3 justify-between items-center md:py-15 py-6">
         <div className="flex-1 space-y-5">
           <h1 className="md:text-5xl text-4xl font-bold ">About</h1>
-          <p className="text-gray-600 hover:text-black font-semibold">
+          <p className="text-gray-600 dark:text-base-content   font-semibold">
             Welcome to Style Decor, a leading decoration service provider
             dedicated to creating beautiful, inspiring, and meaningful spaces.
             We specialize in home decoration, wedding decoration, event décor,

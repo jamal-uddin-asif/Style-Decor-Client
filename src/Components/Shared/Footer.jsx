@@ -7,7 +7,7 @@ import { CiMail, CiPhone } from "react-icons/ci";
 
 const Footer = () => {
   return (
-    <div className="bg-secondary p-9">
+    <div className="bg-primary p-9">
       <Container>
         <footer className="footer sm:footer-horizontal  text-white ">
           <nav>

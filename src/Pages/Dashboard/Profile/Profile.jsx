@@ -6,8 +6,8 @@ const Profile = () => {
     const {user} = useAuth()
 
     return (
-        <div className='min-h-screen   flex justify-center items-center'>
-           <div className='shadow-2xl rounded-2xl p-8'>
+        <div className='min-h-screen    flex justify-center items-center'>
+           <div className='shadow-2xl lg:min-w-2xl rounded-2xl p-8'>
             <h1 className='text-xl font-semibold mb-5 text-center'>My profile</h1>
                 <div>
                     <div className=' '>
@@ -16,7 +16,7 @@ const Profile = () => {
                     </div>
 
                     <div>
-                         <div className=' bg-white rounded-2xl shadow-xl p-3 md:p-8'>
+                         <div className=' bg-white dark:bg-base-200 rounded-2xl shadow-xl p-3 md:p-8'>
            <h1 className='md:text-4xl text-2xl text-center mb-2'>Account Details</h1>
 
            <div className='space-y-4 md:p-5'>

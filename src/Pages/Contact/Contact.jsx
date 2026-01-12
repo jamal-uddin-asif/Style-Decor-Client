@@ -27,7 +27,7 @@ const Contact = () => {
         <div className="md:grid grid-cols-2 p-4 space-y-10 min-h-screen content-center items-center">
           <div>
             <div className="space-y-3 md:space-y-10">
-              <div className="flex bg-white shadow  p-4 rounded-2xl items-center gap-3">
+              <div className="flex bg-white dark:bg-base-300 shadow  p-4 rounded-2xl items-center gap-3">
                 <div>
                   <FaPhone size={25} />
                 </div>
@@ -37,7 +37,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex bg-white shadow  p-4 rounded-2xl items-center gap-3">
+              <div className="flex bg-white dark:bg-base-300 shadow  p-4 rounded-2xl items-center gap-3">
                 <div>
                   <MdEmail size={30} />
                 </div>
@@ -47,7 +47,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex bg-white shadow  p-4 rounded-2xl items-center gap-3">
+              <div className="flex bg-white dark:bg-base-300 shadow  p-4 rounded-2xl items-center gap-3">
                 <div>
                   <FaLocationPin size={30} />
                 </div>
@@ -63,7 +63,7 @@ const Contact = () => {
 
           <div>
             <div className="flex justify-center items-center ">
-              <div className="card bg-white py-5 w-full max-w-sm shrink-0 shadow-2xl">
+              <div className="card bg-white dark:bg-base-300 py-5 w-full max-w-sm shrink-0 shadow-2xl">
                 <h1 className="text-4xl font-bold text-center text-secondary">
                   Send Message
                 </h1>

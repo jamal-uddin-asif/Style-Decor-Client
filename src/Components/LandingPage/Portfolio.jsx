@@ -3,7 +3,7 @@ import SectionTitle from "../Shared/SectionTitle";
 
 export const Portfolio = () => (
   <Container>
-    <section className="py-20  p-2  text-center bg-slate-50">
+    <section className="py-20  p-2  text-center ">
       <SectionTitle base={'Our Latest'} color={'Creations'}/>
       <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4  mx-auto">
         <img

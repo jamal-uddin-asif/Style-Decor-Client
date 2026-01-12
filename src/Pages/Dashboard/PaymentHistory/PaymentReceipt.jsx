@@ -27,7 +27,7 @@ const PaymentReceipt = () => {
                 <div>
                     <h2 className='flex items-center gap-1 font-semibold  justify-center text-3xl'>Payment receipt <CiReceipt size={35}/></h2>
                 </div>
-                <div className='bg-white shadow p-4 space-y-1.5'>
+                <div className='bg-base-100 shadow p-4 space-y-1.5'>
                     <div className='flex justify-between'>
                         <p className='font-semibold'>Service Name:</p>
                         <h3>{receipt.serviceName}</h3>

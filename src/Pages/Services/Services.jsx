@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ClipLoader } from "react-spinners";
 import { Button } from "@headlessui/react";
+import ServicesLoading from "./ServicesLoading";
 
 const Services = () => {
   const axiosSecure = useAxiosSecure();
@@ -34,6 +35,10 @@ const Services = () => {
     });
   }, [axiosSecure, searchText, category, currentPage]);
 
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
+  
   const handleSearch = (data) => {
     if (data.search) {
       setSearchText(data.search);
@@ -53,7 +58,9 @@ const Services = () => {
     }
   };
 
-  if (loading) return <LoadingSpinner></LoadingSpinner>;
+  if (loading) return <ServicesLoading/>;
+
+  
 
   return (
     <Container>
