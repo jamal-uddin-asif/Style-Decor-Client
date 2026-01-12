@@ -137,9 +137,9 @@ const Navber = () => {
             </ul>
 
             <div
-                 onClick={()=>handleShowHide()}
+                 
             className="  border-gray-400 flex items-center gap-1 rounded-sm ">
-              <div>
+              <div onClick={()=>handleShowHide()}>
                {
                 show ? <ImMenu3 size={30} />: <ImMenu4 size={30}/>
                }
