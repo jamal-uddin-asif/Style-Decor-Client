@@ -13,8 +13,8 @@ import { ImMenu3, ImMenu4 } from "react-icons/im";
 
 const Navber = () => {
   const { user, LogOutUser, loading } = useAuth();
-  const [show, setShow] = useState(false)
-  
+  const [show, setShow] = useState(false);
+
   const links = (
     <>
       <li className="font-semibold">
@@ -70,31 +70,31 @@ const Navber = () => {
           Contact
         </NavLink>
       </li>
-  
     </>
   );
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
     try {
-      LogOutUser();
+      await LogOutUser();
       toast.success("SignOut successful");
     } catch (err) {
       toast.error(err.code);
     }
   };
 
-  const handleShowHide = () =>{
-    if(show){
-      setShow(false)
-    }else{
-      setShow(true)
+  const handleShowHide = () => {
+    if (show) {
+      setShow(false);
+    } else {
+      setShow(true);
     }
-  }
+  };
+  console.log('Pro img',user?.photoURL)
 
   return (
-    <div className="bg-primary md:py-3 shadow-sm">
+    <div className=" md:py-3 ">
       <Container>
-        <div className="navbar ">
+        <div className="navbar bg-base-100 px- shadow py-6 rounded-4xl border border-slate-100 ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -136,51 +136,56 @@ const Navber = () => {
               {links}
             </ul>
 
-            <div
-                 
-            className="  border-gray-400 flex items-center gap-1 rounded-sm ">
-              <div onClick={()=>handleShowHide()}>
-               {
-                show ? <ImMenu3 size={30} />: <ImMenu4 size={30}/>
-               }
-               
-              </div>
-              {loading ? <div> <ClipLoader /></div>: user ? (
-                <img
+            <div className="  border-gray-400 bg-gray-200 rounded-l-2xl  flex items-center gap-1 rounded-sm ">
             
+              {loading ? (
+                <div>
+                  <ClipLoader />
+                </div>
+              ) : user ? (
+                <img
                   className="rounded-full h-10 w-10"
                   src={user?.photoURL}
                   alt=""
                 />
               ) : (
                 <img
-           
                   className="rounded-full h-10 w-10"
                   src="https://img.icons8.com/?size=100&id=7820&format=png&color=000000"
                   alt=""
                 />
               )}
-              <div className={`shadow-2xl ${!show && 'hidden'} p-5 space-y-3 bg-white/50  absolute right-5 top-17 z-50  rounded-xl`}>
+                <div onClick={() => handleShowHide()} className="mr-12">
+                {show ? <ImMenu3 size={35} /> : <ImMenu4 size={35} />}
+              </div>
+
+              {/* dropdown */}
+              <div
+                className={`shadow-2xl ${!show && "hidden"} p-5 space-y-3 bg-white/50  absolute right-5 top-17 z-50  rounded-xl`}
+              >
                 <div>
-                  <Link to={'/dashboard'} className="btn btn-secondary"><MdOutlineSpaceDashboard size={22} /> DashBoard</Link>
+                  <Link to={"/dashboard"} className="btn btn-secondary">
+                    <MdOutlineSpaceDashboard size={22} /> DashBoard
+                  </Link>
                 </div>
 
-                 <div className="flex items-center bg-secondary p-2 rounded-xl">
+                <div className="flex items-center bg-secondary p-2 rounded-xl">
                   <small className="text-white">Swich mode</small>
-                  <SwitchMode/>
+                  <SwitchMode />
                 </div>
-                
+
                 {user ? (
-                  <button className="btn  bg-primary w-full" onClick={handleSignOut}>
-                   <GoSignOut size={22}/> SignOut
+                  <button
+                    className="btn  bg-primary w-full"
+                    onClick={handleSignOut}
+                  >
+                    <GoSignOut size={22} /> SignOut
                   </button>
                 ) : (
                   <Link className="btn btn-secondary w-full" to={"/login"}>
                     SignIn
                   </Link>
                 )}
-
-               
               </div>
             </div>
           </div>

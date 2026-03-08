@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Container from "../../../Components/Shared/Container";
 import servicesMan from "../../../assets/serviceMan.jpg";
@@ -8,9 +8,13 @@ import { useAuth } from "../../../Hooks/useAuth";
 import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { ClipLoader } from "react-spinners";
 
 
 const AddServices = () => {
+
+  const [submit, SetSubmit] = useState(false)
+
   const {
     register,
     handleSubmit,
@@ -22,6 +26,9 @@ const AddServices = () => {
   const navigate = useNavigate()
 
   const HandleAddServices = async (data) => {
+
+    SetSubmit(true)
+
     const photo = data.photo[0]
 
     const formData = new FormData()
@@ -49,7 +56,7 @@ const AddServices = () => {
 
     axiosSecure.post('/services', services)
     .then(data=>{
-      console.log(data.data)
+      SetSubmit(false)
       toast.success("Service Added")
       navigate('/dashboard/manageServices')
     })
@@ -103,7 +110,7 @@ const AddServices = () => {
                   <p className="text-red-600">{errors.cost.message}</p>
                 )}
 
-                <label className="label ">Rating</label>
+                {/* <label className="label ">Rating</label>
                 <input
                   type="number"
                   {...register("rating", {
@@ -114,7 +121,7 @@ const AddServices = () => {
                 />
                 {errors.rating && (
                   <p className="text-red-600">{errors.rating.message}</p>
-                )}
+                )} */}
 
                 <label className="label">Photo</label>
                 <input
@@ -202,7 +209,9 @@ const AddServices = () => {
           </fieldset>
                 </div>
               </div>
-                <button className="btn btn-secondary max-w-sm mt-4">Add Service</button>
+                <button className="btn btn-secondary max-w-sm mt-4">
+                 {submit ? <ClipLoader size={25} />: 'Add Service'} 
+                  </button>
               </fieldset>
             </form>
           </div>

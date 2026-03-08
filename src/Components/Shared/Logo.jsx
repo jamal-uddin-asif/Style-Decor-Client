@@ -1,12 +1,23 @@
 import React from 'react';
 import { MdSd } from 'react-icons/md';
-import { Link } from 'react-router';
+import { Link } from 'react-router'; // Note: usually 'react-router-dom'
 
-const Logo = ({className}) => {
+const Logo = ({ className = "" }) => {
     return (
-        <Link to={'/'} className={`flex items-center gap-1 ${className}`}>
-            <MdSd size={35} color=''/>
-            <h2 className='font-bold '>Style <span className='text-secondary'> Decor</span></h2>
+        <Link 
+            to="/" 
+            className={`group flex items-center gap-2 transition-opacity hover:opacity-90 ${className}`}
+        >
+            {/* Icon with a subtle background or stylized color */}
+            <div className="flex items-center justify-center p-1.5 bg-secondary/10 rounded-lg text-secondary group-hover:scale-105 transition-transform">
+                <MdSd size={28} />
+            </div>
+
+            {/* Typography with improved spacing */}
+            <h2 className="text-xl tracking-tight font-extrabold ">
+                Style
+                <span className="text-secondary ml-1 font-semibold">Decor</span>
+            </h2>
         </Link>
     );
 };

@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="bg-primary p-9">
       <Container>
-        <footer className="footer sm:footer-horizontal  text-white ">
+        <footer className="footer sm:footer-horizontal  text-base-content  font-bold">
           <nav>
             <h6 className="footer-title text-2xl">Services</h6>
             <a href="#home" className="link link-hover">
