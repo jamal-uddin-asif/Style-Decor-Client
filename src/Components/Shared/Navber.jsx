@@ -94,7 +94,7 @@ const Navber = () => {
   return (
     <div className=" md:py-3 ">
       <Container>
-        <div className="navbar bg-base-100 px- shadow py-6 rounded-4xl border border-slate-100 ">
+        <div className="navbar bg-base-100 px- shadow py-6 rounded-4xl border border-slate-100 dark:border-base-300">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -129,15 +129,20 @@ const Navber = () => {
               <Logo></Logo>
             </div>
           </div>
-          {/* <div className="navbar-center ">
-      </div> */}
+
+     {/* Navlinks  */}
           <div className="navbar-end ">
             <ul className=" space-x-8 mx-8 menu-horizontal px-1 hidden lg:flex">
               {links}
             </ul>
 
-            <div className="  border-gray-400 bg-gray-200 rounded-l-2xl  flex items-center gap-1 rounded-sm ">
-            
+         {/* theme SwitchMode */}
+               <div className="px-2  rounded-xl">
+                  <SwitchMode />
+                </div>
+
+        {/* User and dropdown */}
+            <div className="  border-gray-400 bg-base-300  rounded-l-2xl  flex items-center gap-1 rounded-sm ">
               {loading ? (
                 <div>
                   <ClipLoader />
@@ -167,11 +172,6 @@ const Navber = () => {
                   <Link to={"/dashboard"} className="btn btn-secondary">
                     <MdOutlineSpaceDashboard size={22} /> DashBoard
                   </Link>
-                </div>
-
-                <div className="flex items-center bg-secondary p-2 rounded-xl">
-                  <small className="text-white">Swich mode</small>
-                  <SwitchMode />
                 </div>
 
                 {user ? (
