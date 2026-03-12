@@ -142,25 +142,29 @@ const Navber = () => {
                 </div>
 
         {/* User and dropdown */}
-            <div className="  border-gray-400 bg-base-300  rounded-l-2xl  flex items-center gap-1 rounded-sm ">
+            <div className="  border-slate-100 shadow-sm mr-6 bg-base-300  rounded-l-2xl  flex items-center gap-1  rounded-sm ">
               {loading ? (
                 <div>
                   <ClipLoader />
                 </div>
               ) : user ? (
+                <div className="rounded-full h-10 w-10 ">
                 <img
                   className="rounded-full h-10 w-10"
                   src={user?.photoURL}
                   alt=""
-                />
+                  />
+                  </div>
               ) : (
+                <div>
                 <img
-                  className="rounded-full h-10 w-10"
+                  className="rounded-full h-10 w-10 "
                   src="https://img.icons8.com/?size=100&id=7820&format=png&color=000000"
                   alt=""
-                />
+                  />
+                  </div>
               )}
-                <div onClick={() => handleShowHide()} className="mr-12">
+                <div onClick={() => handleShowHide()} className="">
                 {show ? <ImMenu3 size={35} /> : <ImMenu4 size={35} />}
               </div>
 
