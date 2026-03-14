@@ -89,7 +89,7 @@ const Navber = () => {
       setShow(true);
     }
   };
-  console.log('Pro img',user?.photoURL)
+  console.log("Pro img", user?.photoURL);
 
   return (
     <div className=" md:py-3 ">
@@ -130,41 +130,37 @@ const Navber = () => {
             </div>
           </div>
 
-     {/* Navlinks  */}
+          {/* Navlinks  */}
           <div className="navbar-end ">
             <ul className=" space-x-8 mx-8 menu-horizontal px-1 hidden lg:flex">
               {links}
             </ul>
 
-         {/* theme SwitchMode */}
-               <div className="px-2  rounded-xl">
-                  <SwitchMode />
-                </div>
+            {/* theme SwitchMode */}
+            <div className="px-2  rounded-xl">
+              <SwitchMode />
+            </div>
 
-        {/* User and dropdown */}
+            {/* User and dropdown */}
             <div className="  border-slate-100 shadow-sm mr-6 bg-base-300  rounded-l-2xl  flex items-center gap-1  rounded-sm ">
               {loading ? (
                 <div>
                   <ClipLoader />
                 </div>
-              ) : user ? (
-                <div className="rounded-full h-10 w-10 ">
-                <img
-                  className="rounded-full h-10 w-10"
-                  src={user?.photoURL}
-                  alt=""
-                  />
-                  </div>
               ) : (
-                <div>
-                <img
-                  className="rounded-full h-10 w-10 "
-                  src="https://img.icons8.com/?size=100&id=7820&format=png&color=000000"
-                  alt=""
+                <div className="rounded-full h-10 w-10 ">
+                  <img
+                    className="rounded-full h-10 w-10"
+                    src={
+                      user
+                        ? user?.photoURL
+                        : "https://img.icons8.com/?size=100&id=7820&format=png&color=000000"
+                    }
+                    alt=''
                   />
-                  </div>
+                </div>
               )}
-                <div onClick={() => handleShowHide()} className="">
+              <div onClick={() => handleShowHide()} className="">
                 {show ? <ImMenu3 size={35} /> : <ImMenu4 size={35} />}
               </div>
 
