@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Leaflet from "./Leaflet/Leaflet";
 import Container from "../../Components/Shared/Container";
-import HeroSlider from "./HeroSlider/HeroSlider";
 import Heading from "../../Components/Shared/Heading";
 import TopDecorators from "./TopDecorators/TopDecorators";
 import { EffectCoverflow, Pagination } from "swiper/modules";
