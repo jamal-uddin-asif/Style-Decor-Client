@@ -45,9 +45,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="sticky top-0 z-50 w-full ">
+    <div className="sticky top-0 z-50 w-full bg-white/80 dark:bg-base-100/80 backdrop-blur-xl border border-slate-300 dark:border-slate-700 shadow-xl  ">
       <Container>
-        <nav className="relative  flex items-center justify-between px-5 py-6 bg-white/80 dark:bg-base-100/80 backdrop-blur-xl border border-slate-300 dark:border-slate-700 shadow-xl rounded-full">
+        <nav className="relative  flex items-center justify-between px-5 py-6 ">
           
           <div className="flex-shrink-0 scale-90 md:scale-100">
             <Logo />

@@ -6,7 +6,7 @@ import Navber from '../Components/Shared/Navber';
 const RootLayout = () => {
     return (
         <div className='relative  bg-base-200'>
-            <header className='sticky  top-2  mx-auto  z-30'>
+            <header className='sticky  top-0  mx-auto  z-30'>
             <Navber></Navber>
             </header>
             <Outlet></Outlet>
