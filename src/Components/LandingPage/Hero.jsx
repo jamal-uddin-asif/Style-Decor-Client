@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import bannerImg from "./../../assets/BannerImg.jpg";
 
 const Hero = () => {
-  // Animation variants for staggered text
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,7 +32,6 @@ const Hero = () => {
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Text Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -73,7 +72,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Hero Interaction Card */}
           <div className="lg:col-span-5 hidden lg:block">
             <HeroUsers />
           </div>

@@ -11,13 +11,11 @@ const HeroUsers = () => {
     axiosInstance("/users").then((data) => {
       setUsers(data.data);
     });
-    // users dependency removed to prevent infinite loop
   }, [axiosInstance]);
 
   return (
     <div className="relative h-[500px] w-full flex items-center justify-center">
-      
-      {/* Top Floating Badge: Satisfied Clients */}
+
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -58,14 +56,12 @@ const HeroUsers = () => {
         <p className="text-slate-200 text-sm leading-relaxed">
           Style Decor is dedicated to creating inspiring and meaningful spaces that tell your unique story.
         </p>
-        
-        {/* Subtle Decorative element */}
+
         <div className="mt-4 flex gap-1">
             {[1, 2, 3].map(i => <div key={i} className="h-1 w-8 bg-secondary/40 rounded-full"></div>)}
         </div>
       </motion.div>
 
-      {/* Background Decorative Circle */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/20 rounded-full blur-[100px] -z-10"></div>
     </div>
   );
