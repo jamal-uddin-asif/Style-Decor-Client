@@ -40,7 +40,7 @@ const Hero = () => {
           >
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] uppercase tracking-tight"
+              className="text-4xl md:text-5xl font-semibold text-white leading-[1.1] uppercase tracking-tight"
             >
               Making Your Special <br />
               <span className="text-secondary drop-shadow-md">Moments More Beautiful.</span>
@@ -48,19 +48,19 @@ const Hero = () => {
 
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-slate-200 max-w-xl leading-relaxed"
+              className="text-lg md:text-sm text-slate-200 max-w-xl leading-relaxed"
             >
               Book services for your office, home, or dream wedding. We bring
               your vision to life with precision, style, and a touch of magic.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <Link
-                to="#wedding"
+              <a
+                href="#wedding"
                 className="bg-secondary hover:bg-secondary/80 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-secondary/20"
               >
                 GET STARTED
-              </Link>
+              </a>
 
               <Link
                 to="/services"

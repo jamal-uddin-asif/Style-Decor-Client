@@ -59,7 +59,7 @@ const Navbar = () => {
               <li key={link.path}>
                 <NavLink to={link.path} className={({ isActive }) =>
     `relative flex items-center gap-2 py-2 px-1 transition-all duration-300 font-medium hover:text-secondary ${
-      isActive ? "text-secondary" : "text-slate-900 dark:text-slate-300"
+      isActive ? "text-secondary" : ""
     }`}>
                   {({ isActive }) => (
                     <>
@@ -131,7 +131,7 @@ const Navbar = () => {
                     <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold px-3 mb-1">Account</p>
                     <Link
                       to="/dashboard"
-                      className="flex items-center gap-3 w-full px-3 py-2.5 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors"
+                      className="flex items-center gap-3 w-full text-secondary px-3 py-2.5 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors"
                     >
                       <MdOutlineSpaceDashboard size={20} className="text-secondary" /> 
                       Dashboard

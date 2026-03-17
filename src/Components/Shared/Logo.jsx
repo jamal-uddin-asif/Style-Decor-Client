@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdSd } from 'react-icons/md';
-import { Link } from 'react-router'; // Note: usually 'react-router-dom'
+import { Link } from 'react-router'; 
 
 const Logo = ({ className = "" }) => {
     return (
@@ -15,7 +15,7 @@ const Logo = ({ className = "" }) => {
 
             {/* Typography with improved spacing */}
             <h2 className="text-xl tracking-tight font-extrabold ">
-                Style
+                Style 
                 <span className="text-secondary ml-1 font-semibold">Decor</span>
             </h2>
         </Link>

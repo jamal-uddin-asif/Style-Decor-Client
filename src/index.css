@@ -18,6 +18,10 @@
   --color-secondary: #6b9080;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *{
     font-family: "Montserrat", sans-serif;
 }
