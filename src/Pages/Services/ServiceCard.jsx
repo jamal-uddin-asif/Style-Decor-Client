@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
   const { serviceImg, serviceName, rating, category, cost, shortDescription, _id } = service;
 
   return (
-    <div className="group bg-base-100 border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-fit">
+    <div className="group bg-base-100 border border-base-300 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-fit">
       
       <div className="relative h-40 overflow-hidden">
         <img 

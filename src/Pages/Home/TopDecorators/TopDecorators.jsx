@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import TopDecoratorsCard from "./TopDecoratorsCard";
 import { useQuery } from "@tanstack/react-query";
 import { useAxiosInstance } from "../../../Hooks/useAxiosInstance";
+import { motion} from "framer-motion";
 
 const TopDecorators = () => {
   const axiosInstance = useAxiosInstance();
@@ -22,9 +23,10 @@ const TopDecorators = () => {
 
       <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 my-5 md:my-10 lg:my-20'>
         {decorators.map((decorator, i) => (
-          <SwiperSlide key={i}>
-            <TopDecoratorsCard decorator={decorator}></TopDecoratorsCard>
-          </SwiperSlide>
+    <motion.div >
+          <TopDecoratorsCard key={i} decorator={decorator}></TopDecoratorsCard>
+    </motion.div>
+
         ))}
       </div>
      

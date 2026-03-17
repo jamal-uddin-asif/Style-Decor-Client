@@ -97,8 +97,8 @@ const DynamicServices = ({ servicesByCategory }) => {
             ))}
           </div>
 
-          <div className="flex justify-center my-10">
-            <Link to={'/services'}  className="btn btn-secondary">See All</Link>
+          <div className="flex justify-end my-10">
+            <Link to={'/services'}  className=" bg-secondary text-white font-semibold rounded-sm px-6 py-1">See More..</Link>
           </div>
         </div>
       </Container>
