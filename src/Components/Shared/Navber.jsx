@@ -91,7 +91,7 @@ const Navbar = () => {
               ) : (
                 <button 
                   onClick={() => setShow(!show)}
-                  className="flex items-center gap-2 p-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-transparent hover:border-secondary/30 transition-all"
+                  className="flex items-center gap-2 p-1 rounded-full bg-background border border-transparent hover:border-secondary/30 transition-all"
                 >
                   <img
                     className="h-8 w-8 md:h-9 md:w-9 rounded-full object-cover shadow-inner"

@@ -12,18 +12,6 @@ const DynamicServices = ({ servicesByCategory }) => {
   return (
     <div>
       <Container>
-        {/* <div className="flex text-center justify-center items-center ">
-          <div className="my-10">
-            <h1 className="text-3xl mb-3 md:text-4xl font-bold">
-              Category-Based{" "}
-              <span className="text-secondary"> Decoration Solutions</span>
-            </h1>
-            <p>
-              Easily explore services by event type — home, wedding, office,
-              seminar, and more.
-            </p>
-          </div>
-        </div> */}
 
         {/* Wedding  */}
         <motion.div

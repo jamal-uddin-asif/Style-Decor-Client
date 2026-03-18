@@ -3,8 +3,23 @@ import { MdVerified, MdEmail } from "react-icons/md";
 import { AiFillStar } from "react-icons/ai";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import { BiTask } from "react-icons/bi";
+import { useAuth } from "../../../Hooks/useAuth";
+import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const TopDecoratorsCard = ({ decorator }) => {
+    // const {user} = useAuth()
+    //   const axiosSecure = useAxiosSecure()
+  
+    //   const {data: earning = []} = useQuery({
+    //       queryKey: ['service-completed', user?.email],
+    //       queryFn: async() =>{
+    //           const res = await axiosSecure(`/bookings/${user?.email}/earning-summary`)
+    //           return res.data
+    //       }
+    //   })
+
+
   return (
     <div className="group  rounded-3xl border border-base-300  shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full relative">
       
@@ -38,15 +53,14 @@ const TopDecoratorsCard = ({ decorator }) => {
         </div>
       </div>
 
-
       <div className="p-5 flex flex-col flex-grow">
         
 
         <div className="grid grid-cols-2 gap-3 mb-6">
           <div className="bg-slate-50 dark:bg-slate-800/50 p-2.5 rounded-2xl flex flex-col items-center justify-center border border-slate-100 dark:border-slate-700 transition-colors group-hover:border-secondary/30">
             <BiTask className="text-white mb-1" size={18} />
-            <span className="text-[10px] text-white uppercase font-bold">Projects</span>
-            <span className="text-sm font-extrabold text-slate-700 dark:text-slate-200">120+</span>
+            <span className="text-[10px] text-white uppercase font-bold">Services</span>
+            <span className="text-sm font-extrabold text-slate-700 dark:text-slate-200">10+</span>
           </div>
           <div className="bg-slate-50 dark:bg-slate-800/50 p-2.5 rounded-2xl flex flex-col items-center justify-center border border-slate-100 dark:border-slate-700 transition-colors group-hover:border-orange-300/30">
             <AiFillStar className="text-orange-400 mb-1" size={18} />
