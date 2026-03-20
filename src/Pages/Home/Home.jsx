@@ -39,7 +39,7 @@ const Home = () => {
   useEffect(()=>{
       window.scroll(0,0)
     },[])
-  // console.log(servicesByCategory('Wedding'))
+
 
 
   return (
