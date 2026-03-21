@@ -8,16 +8,6 @@ import { useAxiosSecure } from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const TopDecoratorsCard = ({ decorator }) => {
-    // const {user} = useAuth()
-    //   const axiosSecure = useAxiosSecure()
-  
-    //   const {data: earning = []} = useQuery({
-    //       queryKey: ['service-completed', user?.email],
-    //       queryFn: async() =>{
-    //           const res = await axiosSecure(`/bookings/${user?.email}/earning-summary`)
-    //           return res.data
-    //       }
-    //   })
 
 
   return (
